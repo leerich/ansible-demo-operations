@@ -1,0 +1,22 @@
+---
+- name: Provision AWS resources
+  include: playbooks/provision-aws.yml
+
+- name: Install Tower
+  hosts: tower
+  gather_facts: yes
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  roles:
+    - tower
+    - tower-demo-base
+
+- name: Configure Tower
+  hosts: tower
+  gather_facts: yes
+  remote_user: ec2-user
+  become: yes
+  become_user: admin
+  roles:
+    - tower-demo-settings
