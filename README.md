@@ -10,6 +10,9 @@ This project targets AWS for all demo resources. The following environment varia
 - `ANSIBLE_AWS_SECRET_ACCESS_KEY`: The AWS_SECRET_ACCESS_KEY for the target AWS account
 - `ANSIBLE_AWS_REGION`: The AWS_REGION for the target AWS account
 - `TOWER_DEMO_KEYPAIR_NAME`: Name of the AWS keypair used to create the Tower server
+- `ANSIBLE_AWS_PUBLIC_SUBNET_A_AZ`: Name of the AZ to map to public_subnet_a_az
+- `ANSIBLE_AWS_PUBLIC_SUBNET_B_AZ`: Name of the AZ to map to public_subnet_b_az
+- `ANSIBLE_AWS_PUBLIC_SUBNET_C_AZ`: Name of the AZ to map to public_subnet_c_az
 
 It is also necessary to have the following resources:
   - shared Ansible Vault passphrase
