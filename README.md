@@ -16,7 +16,6 @@ This project targets AWS for all demo resources. The following environment varia
 
 It is also necessary to have the following resources:
   - shared Ansible Vault passphrase
-  - AWS keypair to use when creating Tower
 
 These values can be set in group_vars.
 
