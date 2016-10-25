@@ -14,10 +14,30 @@ This project targets AWS for all demo resources. The following environment varia
 - `ANSIBLE_AWS_PUBLIC_SUBNET_B_AZ`: Name of the AZ to map to public_subnet_b_az
 - `ANSIBLE_AWS_PUBLIC_SUBNET_C_AZ`: Name of the AZ to map to public_subnet_c_az
 
+One approach is to create an ```env.sh``` file and source it before running.
+
+```
+export ANSIBLE_AWS_ACCESS_KEY_ID=eggs
+export ANSIBLE_AWS_SECRET_ACCESS_KEY=spam
+export ANSIBLE_AWS_REGION=us-east-1
+export TOWER_DEMO_KEYPAIR_NAME=key_name
+export ANSIBLE_AWS_PUBLIC_SUBNET_A_AZ=us-east-1a
+export ANSIBLE_AWS_PUBLIC_SUBNET_B_AZ=us-east-1d
+export ANSIBLE_AWS_PUBLIC_SUBNET_C_AZ=us-east-1e
+export ENVIRONMENT_NAME=ansible-demo
+```
+
+Note that your available AZs might be different than, literally, A, B, and C.
+
 It is also necessary to have the following resources:
   - shared Ansible Vault passphrase
 
 These values can be set in group_vars.
 
 ## Usage
-`ansible-playbook tower.yml --ask-vault-pass`
+```
+ssh-agent bash
+ssh-add /path/to/key_name.pem
+source env.sh
+ansible-playbook tower.yml --ask-vault-pass
+```
