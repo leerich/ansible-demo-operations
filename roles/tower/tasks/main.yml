@@ -27,6 +27,10 @@
     - openssl-devel
     - ansible
 
+- name: upgrade pip
+  shell: >
+    pip install pip --upgrade
+
 - name: Ensure all needed python packages are installed
   pip:
     name: "{{ item }}"
