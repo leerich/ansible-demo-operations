@@ -48,9 +48,14 @@ export ANSIBLE_TOWER_LICENSE_PATH="/path/to/ansible-demo-tower-license.json"
 **Note**: your available AZs might be different than, literally, A, B, and C.
 
 ## Usage
-```
-ssh-agent bash
-ssh-add /path/to/tower-key.pem
-source env.sh
-ansible-playbook tower.yml
-```
+1. Set up your demo environment
+      ```
+      ssh-agent bash
+      ssh-add /path/to/tower-key.pem
+      source env.sh
+      ansible-playbook tower.yml
+      ```
+2. Create forms for any job templates that need them. This will be automated soon.
+
+## Documentation
+- [administration](docs/administration.md)
