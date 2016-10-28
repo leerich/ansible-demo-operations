@@ -94,7 +94,7 @@
 
 - name: Ensure the Tower license is in place
   copy:
-    content: "{{ tower_license | to_json }}"
+    src: "{{ tower_license_path }}"
     dest: /etc/tower/license
     owner: awx
     group: awx

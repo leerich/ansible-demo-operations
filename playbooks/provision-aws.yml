@@ -156,6 +156,7 @@
           Name: "tower-{{ environment_name }}"
           Environment: "{{ environment_name }}"
         wait: yes
+        wait_timeout: 900
       register: tower_rds_instance
 
     - name: Create the Tower EC2 instance
@@ -213,3 +214,7 @@
 
     - debug:
         msg: 'Tower IP: {{ tower_eip.public_ip }}'
+
+    - name: Wait 10 seconds for SSH to really start
+      pause:
+        seconds: 10
