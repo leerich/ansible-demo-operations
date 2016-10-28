@@ -76,7 +76,6 @@
     --kind ssh
     --username admin
     --ssh-key-data /home/admin/.ssh/id_rsa
-    --vault-password "{{ ansible_demo_vault_pass }}"
     --force-on-exists
 
 - name: Ensure all admins have access to the demo admin machine credential
