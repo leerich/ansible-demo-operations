@@ -5,7 +5,7 @@ ansible_aws_secret_key: "{{ lookup('env', 'ANSIBLE_AWS_SECRET_ACCESS_KEY') }}"
 ansible_aws_region: "{{ lookup('env', 'ANSIBLE_AWS_REGION') }}"
 
 # Config for the AWS resources provisioned for Tower
-environment_name: "{{ lookup('env', 'ENVIRONMENT_NAME') }}"
+environment_name: "{{ lookup('env', 'ANSIBLE_ENVIRONMENT_NAME') }}"
 vpc_name: "{{ environment_name }}-vpc"
 vpc_cidr: 10.0.0.0/16
 public_internet_cidr: 0.0.0.0/0
