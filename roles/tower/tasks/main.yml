@@ -83,7 +83,7 @@
       dest: /tmp/{{ tower_installer_name }}/inventory
 
   - name: Run the setup script if necessary
-    shell: sudo ./setup.sh
+    shell: ./setup.sh
     args:
       chdir: /tmp/{{ tower_installer_name }}
   when: "{{ tower_target_version | version_compare(tower_current_version, '>') }}"

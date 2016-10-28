@@ -100,3 +100,23 @@ sales_demo_job_templates:
         type: execute
       - name: Sales Demo Admin
         type: admin
+  - name: Terminate Demo Instances
+    description: "Shut down and delete a user's demo instances in AWS by Tower username"
+    job_type: run
+    project: Sandbox
+    playbook: demo-aws-delete.yml
+    ask_inventory_on_launch: yes
+    machine_credential: Demo SSH Key
+    cloud_credential: Demo Amazon Web Services
+    limit: tag_ansible_group_webservers,tag_ansible_group_dbservers,tag_ansible_group_lbservers,tag_ansible_group_monitoring
+    team_roles:
+      - name: Engineering
+        type: execute
+      - name: Sales
+        type: execute
+      - name: QA
+        type: execute
+      - name: DevOps
+        type: execute
+      - name: Sales Demo Admin
+        type: admin
