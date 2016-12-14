@@ -21,7 +21,6 @@ These environment variables make it possible to reliably automate creation of AW
 - `ANSIBLE_AWS_PUBLIC_SUBNET_A_AZ`: The AZ to create the first public subnet in
 - `ANSIBLE_AWS_PUBLIC_SUBNET_B_AZ`: The AZ to create the second public subnet in
 - `ANSIBLE_AWS_PUBLIC_SUBNET_C_AZ`: The AZ to create the third public subnet in
-- `ANSIBLE_ENVIRONMENT_NAME`: The name to prefix to all AWS resources created for this demo environment
 - `ANSIBLE_DEMO_KEYPAIR_NAME`: The name of the keypair to use when creating the Tower EC2 instance
 - `ANSIBLE_TOWER_ADMIN_PASSWORD`: The password to assign to the admin user
 - `ANSIBLE_TOWER_AMI`: The AMI used when creating the Tower EC2 instance
@@ -37,7 +36,6 @@ export ANSIBLE_AWS_REGION="us-east-1"
 export ANSIBLE_AWS_PUBLIC_SUBNET_A_AZ="us-east-1b"
 export ANSIBLE_AWS_PUBLIC_SUBNET_B_AZ="us-east-1d"
 export ANSIBLE_AWS_PUBLIC_SUBNET_C_AZ="us-east-1e"
-export ANSIBLE_ENVIRONMENT_NAME="ansible-demo"
 export ANSIBLE_DEMO_KEYPAIR_NAME="tower"
 export ANSIBLE_TOWER_ADMIN_PASSWORD="coffee"
 export ANSIBLE_TOWER_AMI="ami-2051294a"

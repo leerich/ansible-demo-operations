@@ -1,0 +1,8 @@
+tower-vpc
+tower-route-table
+tower-instance
+
+[subnet]
+tower-public-subnet-a
+tower-public-subnet-b
+tower-public-subnet-c

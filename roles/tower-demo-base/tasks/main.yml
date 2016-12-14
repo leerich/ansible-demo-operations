@@ -1,5 +1,5 @@
 ---
-- name: Create a user for use by admin jobs
+- name: create a user for use by admin jobs
   user:
     name: admin
     createhome: yes
@@ -8,19 +8,19 @@
     ssh_key_file: /home/admin/.ssh/id_rsa
     state: present
 
-- name: Grab the public key
+- name: grab the public key
   slurp:
     src: /home/admin/.ssh/id_rsa.pub
   register: public_key
 
-- name: Add the public key to authorized_keys
+- name: add the public key to authorized_keys
   authorized_key:
     exclusive: yes
     key: "{{ public_key.content | b64decode }}"
     user: admin
     state: present
 
-- name: Configure the admin users tower-cli correctly
+- name: configure the admin users tower-cli correctly
   copy:
     content: |
       host: localhost

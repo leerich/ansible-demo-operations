@@ -1,15 +1,15 @@
 ---
-- name: Install EPEL repo
+- name: install EPEL repo
   yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
     state: present
 
-- name: Import EPEL GPG key
+- name: import EPEL GPG key
   rpm_key:
     key: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
     state: present
 
-- name: Ensure all needed yum packages are installed
+- name: ensure all needed yum packages are installed
   yum:
     name: "{{ item }}"
     update_cache: yes
@@ -19,7 +19,6 @@
     - git
     - htop
     - nano
-    - "@Development tools"
     - python
     - python-devel
     - python-pip
@@ -28,24 +27,22 @@
     - ansible
 
 - name: upgrade pip
-  shell: >
-    pip install pip --upgrade
+  shell: pip install pip --upgrade
 
-- name: Ensure all needed python packages are installed
+- name: ensure all needed python packages are installed
   pip:
     name: "{{ item }}"
     state: latest
   with_items:
     - ansible-tower-cli
     - boto
-    - shade
     - awscli
     - azure
     - pywinrm
-    - pysphere
+    - pyvmomi
     - xmltodict
 
-- name: Get current version of Tower that is installed
+- name: get current version of Tower that is installed
   shell: tower-manage --version
   changed_when: False
   failed_when: False
@@ -69,37 +66,37 @@
     tower_installer_url: https://releases.ansible.com/ansible-tower/setup/{{ tower_installer_name }}.tar.gz
 
 - block:
-  - name: Download the Tower installer
+  - name: download the Tower installer
     get_url:
       url: "{{ tower_installer_url }}"
       dest: /tmp/
     register: installer_download
 
-  - name: Extract the Tower installer
+  - name: extract the Tower installer
     unarchive:
       src: "{{ installer_download.dest }}"
       dest: /tmp
       copy: no
 
-  - name: Configure the installation
+  - name: configure the installation
     template:
       src: inventory.j2
       dest: /tmp/{{ tower_installer_name }}/inventory
 
-  - name: Run the setup script if necessary
+  - name: run the setup script if necessary
     shell: ./setup.sh
     args:
       chdir: /tmp/{{ tower_installer_name }}
   when: "{{ tower_target_version | version_compare(tower_current_version, '>') }}"
 
-- name: Ensure the Tower license is in place
+- name: ensure the Tower license is in place
   copy:
     src: "{{ tower_license_path }}"
     dest: /etc/tower/license
     owner: awx
     group: awx
 
-- name: Ensure tower-cli is not configured for non-admin users
+- name: ensure tower-cli is not configured for non-admin users
   copy:
     content: |
       host: 127.0.0.1
@@ -121,7 +118,7 @@
     - path: /home/ec2-user/.tower_cli.cfg
       owner: ec2-user
 
-- name: Wait for the Tower API to accept connections
+- name: wait for the Tower API to accept connections
   wait_for:
     port: 443
     host: localhost
