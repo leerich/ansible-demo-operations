@@ -9,8 +9,9 @@
   become: yes
   become_user: root
   roles:
-    - tower
-    - tower-demo-base
+    - name: tower
+    - name: tower-demo-base
+      when: configure_tower | default('no') | bool
 
 - name: configure Ansible Tower
   hosts: tower-instance
@@ -19,4 +20,5 @@
   become: yes
   become_user: admin
   roles:
-    - tower-demo-settings
+    - name: tower-demo-settings
+      when: configure_tower | default('no') | bool
