@@ -1,4 +1,3 @@
-# {{ ansible_managed }}
 ---
 - hosts: sales-demo.ansible.com
   gather_facts: no

@@ -1,4 +1,3 @@
-# {{ ansible_managed }}
 ---
 - include: add-demo-user.yml
 
