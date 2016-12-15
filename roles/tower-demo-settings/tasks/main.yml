@@ -46,7 +46,7 @@
   shell: >
     tower-cli role grant
     --credential "Demo SSH Key"
-    --team "Sales"
+    --team "Sales Demo User"
     --type use
 
 - name: Create the demo cloud credential
@@ -64,7 +64,7 @@
   shell: >
     tower-cli role grant
     --credential "Demo Amazon Web Services"
-    --team "Sales"
+    --team "Sales Demo User"
     --type use
 
 - name: Create the demo admin machine credential
