@@ -6,3 +6,5 @@ ansible_aws_region: "{{ lookup('env', 'ANSIBLE_AWS_REGION') }}"
 
 # General settings
 public_internet_cidr: 0.0.0.0/0
+
+environment_name: "{{ lookup('env', 'ANSIBLE_ENVIRONMENT_NAME') }}"

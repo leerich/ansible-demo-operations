@@ -7,7 +7,7 @@ tower_demo_keypair_name: "{{ lookup('env', 'ANSIBLE_DEMO_KEYPAIR_NAME') }}"
 tower_admin_user: admin
 tower_admin_password: "{{ lookup('env', 'ANSIBLE_TOWER_ADMIN_PASSWORD' )}}"
 
-tower_db_name: tower
+tower_db_name: "tower{{ environment_name | regex_replace('[^0-9a-zA-Z]', '') }}"
 tower_db_username: ansibledevops
 tower_db_password: "{{ lookup('env', 'ANSIBLE_TOWER_DB_PASSWORD') }}"
 tower_db_port: 5432
