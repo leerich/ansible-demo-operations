@@ -110,6 +110,7 @@
             from_port: -1
             to_port: -1
             cidr_ip: "{{ public_internet_cidr }}"
+        state: present
       register: tower_security_group
 
     - name: create the tower db security group

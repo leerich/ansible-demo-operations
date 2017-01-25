@@ -15,7 +15,7 @@
 
 - name: configure Ansible Tower
   hosts: tower-instance
-  gather_facts: yes
+  gather_facts: no
   remote_user: ec2-user
   become: yes
   become_user: admin

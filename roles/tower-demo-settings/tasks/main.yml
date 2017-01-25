@@ -14,7 +14,7 @@
     aws_access_key: "{{ ansible_aws_access_key }}"
     aws_secret_key: "{{ ansible_aws_secret_key }}"
     aws_region: "{{ ansible_aws_region }}"
-    name: ansible-sales-demo
+    name: "{{ demo_keypair_name }}"
     key_material: "{{ demo_key.content | b64decode }}"
     state: present
 
@@ -142,7 +142,7 @@
 - name: Add the Tower server to local inventory
   shell: >
     tower-cli host create
-    --name sales-demo.ansible.com
+    --name "{{ ansible_host }}"
     --inventory "Local Tower Management"
 
 - name: Create job template for onboarding demo users
@@ -226,8 +226,9 @@
     --machine-credential "{{ item.machine_credential }}"
     --cloud-credential "{{ item.cloud_credential }}"
     --limit "{{ item.limit | default('') }}"
-    --extra-vars "{{ item.extra_vars | default('') }}"
+    --extra-vars "{{ item.extra_vars | default('foo: bar') | from_yaml | to_yaml }}"
     --ask-inventory-on-launch "{{ item.ask_inventory_on_launch | default('no') | bool }}"
+    --ask-job-type-on-launch "{{ item.ask_job_type_on_launch | default('no') | bool }}"
   with_items: "{{ sales_demo_job_templates }}"
 
 - name: Ensure all job template roles are granted

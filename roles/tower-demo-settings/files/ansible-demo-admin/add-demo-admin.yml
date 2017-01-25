@@ -1,7 +1,7 @@
 ---
 - include: add-demo-user.yml
 
-- hosts: sales-demo.ansible.com
+- hosts: all
   gather_facts: no
   become: no
   tasks:
