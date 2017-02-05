@@ -18,7 +18,7 @@
     config_file: ~/.tower_cli.cfg
     team: Sales Demo Admin
     role: "{{ item }}"
-    project: Ansible Tower Demo Admin
+    project: Ansible Tower Demo Operations
     state: present
   with_items:
     - use
