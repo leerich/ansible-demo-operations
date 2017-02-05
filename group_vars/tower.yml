@@ -1,9 +1,6 @@
 ---
 tower_target_version: 3.0.3
 
-tower_ami: "{{ lookup('env', 'ANSIBLE_TOWER_AMI' ) }}"
-tower_demo_keypair_name: "{{ lookup('env', 'ANSIBLE_DEMO_KEYPAIR_NAME') }}"
-
 tower_admin_user: admin
 tower_admin_password: "{{ lookup('env', 'ANSIBLE_TOWER_ADMIN_PASSWORD' )}}"
 

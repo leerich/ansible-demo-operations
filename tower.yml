@@ -1,24 +1,23 @@
 ---
-- name: provision AWS resources
-  include: playbooks/provision-aws.yml
+- name: provision infrastructure
+  include: provision-{{ target_platform }}.yml
 
-- name: install Ansible Tower
-  hosts: tower-instance
+- name: install ansible tower
+  hosts: tower
   gather_facts: yes
-  remote_user: ec2-user
   become: yes
   become_user: root
   roles:
     - name: tower
+      when: install_tower | bool
     - name: tower-demo-base
-      when: configure_tower | default('no') | bool
+      when: configure_tower_base | bool
 
-- name: configure Ansible Tower
-  hosts: tower-instance
+- name: configure ansible tower
+  hosts: tower
   gather_facts: no
-  remote_user: ec2-user
   become: yes
   become_user: admin
   roles:
     - name: tower-demo-settings
-      when: configure_tower | default('no') | bool
+      when: configure_tower | bool

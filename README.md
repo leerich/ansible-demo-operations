@@ -2,7 +2,7 @@
 > Ansible Tower demo environment automation.
 
 ## Overview
-This project contains Ansible resources for automating creation and management of a shared Ansible Tower demo environment. All demo content added to the Tower server is maintained by the Ansible team as official demo content. It also serves as an example of using Ansible Playbooks to manage a Tower server configuration.
+This project contains Ansible resources for automating creation and management of a shared Ansible Tower demo environment. All demo content added to the Tower server is maintained by the Automation SME team as official demo content.
 
 ## Requirements
 The following must be performed in order to use the playbooks in this project. Keep in mind that there are also various variables in [group_vars](group_vars) that can be modified, but that is not required.

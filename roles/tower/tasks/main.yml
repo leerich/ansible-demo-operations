@@ -1,10 +1,10 @@
 ---
-- name: install EPEL repo
+- name: install epel repo
   yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
     state: present
 
-- name: import EPEL GPG key
+- name: import epel gpg key
   rpm_key:
     key: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
     state: present
@@ -42,7 +42,7 @@
     - pyvmomi
     - xmltodict
 
-- name: get current version of Tower that is installed
+- name: get current version of tower that is installed
   shell: tower-manage --version
   changed_when: False
   failed_when: False
@@ -66,13 +66,13 @@
     tower_installer_url: https://releases.ansible.com/ansible-tower/setup/{{ tower_installer_name }}.tar.gz
 
 - block:
-  - name: download the Tower installer
+  - name: download the tower installer
     get_url:
       url: "{{ tower_installer_url }}"
       dest: /tmp/
     register: installer_download
 
-  - name: extract the Tower installer
+  - name: extract the tower installer
     unarchive:
       src: "{{ installer_download.dest }}"
       dest: /tmp
@@ -89,7 +89,7 @@
       chdir: /tmp/{{ tower_installer_name }}
   when: "{{ tower_target_version | version_compare(tower_current_version, '>') }}"
 
-- name: ensure the Tower license is in place
+- name: ensure the tower license is in place
   copy:
     src: "{{ tower_license_path }}"
     dest: /etc/tower/license
@@ -118,7 +118,7 @@
     - path: /home/ec2-user/.tower_cli.cfg
       owner: ec2-user
 
-- name: wait for the Tower API to accept connections
+- name: wait for the tower api to accept connections
   wait_for:
     port: 443
     host: localhost

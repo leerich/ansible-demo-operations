@@ -1,0 +1,8 @@
+---
+- hosts: tower-vpc
+  connection: local
+  gather_facts: no
+  become: no
+  tasks:
+    - name: ensure the tower vm is created
+      rhev:

@@ -2,14 +2,14 @@
 demo_keypair_name: ansible-sales-demo
 
 sales_demo_teams:
-    - name: Sales
-    - name: Engineering
-    - name: QA
-    - name: DevOps
-    - name: Sales Demo User
-      description: Team with permissions to run all demos.
-    - name: Sales Demo Admin
-      description: Team with permissions to onboard new demo users.
+  - name: Sales
+  - name: Engineering
+  - name: QA
+  - name: DevOps
+  - name: Sales Demo User
+    description: Team with permissions to run all demos.
+  - name: Sales Demo Admin
+    description: Team with permissions to onboard new demo users.
 
 sales_demo_projects:
   - name: Ansible Examples
@@ -37,7 +37,7 @@ sales_demo_job_templates:
     job_type: run
     project: Ansible Examples
     playbook: provisioning/aws/user-deprovision.yml
-    ask_inventory_on_launch: yes
+    ask_inventory: yes
     machine_credential: Demo SSH Key
     cloud_credential: Demo Amazon Web Services
     extra_vars:
@@ -53,7 +53,7 @@ sales_demo_job_templates:
     job_type: run
     project: Ansible Examples
     playbook: provisioning/aws/provision.yml
-    ask_inventory_on_launch: yes
+    ask_inventory: yes
     machine_credential: Demo SSH Key
     cloud_credential: Demo Amazon Web Services
     extra_vars:
@@ -102,7 +102,7 @@ sales_demo_job_templates:
     job_type: run
     project: Ansible Examples
     playbook: lamp_haproxy/aws-site.yml
-    ask_inventory_on_launch: yes
+    ask_inventory: yes
     machine_credential: Demo SSH Key
     cloud_credential: Demo Amazon Web Services
     limit: tag_Demo_lamp_haproxy
@@ -120,7 +120,7 @@ sales_demo_job_templates:
     job_type: run
     project: Ansible Examples
     playbook: provisioning/aws/provision.yml
-    ask_inventory_on_launch: yes
+    ask_inventory: yes
     machine_credential: Demo SSH Key
     cloud_credential: Demo Amazon Web Services
     extra_vars:
@@ -144,7 +144,7 @@ sales_demo_job_templates:
     job_type: run
     project: Ansible Example - Security Hardening
     playbook: 800-53.yml
-    ask_inventory_on_launch: yes
+    ask_inventory: yes
     machine_credential: Demo SSH Key
     cloud_credential: Demo Amazon Web Services
     limit: tag_Demo_security_hardening

@@ -1,10 +1,13 @@
 ---
-# Config for targeting the AWS account for installation
+install_tower: yes
+configure_tower_base: yes
+configure_tower: no
+target_platform: aws
+
+environment_name: "{{ lookup('env', 'ANSIBLE_ENVIRONMENT_NAME') }}"
+
+public_internet_cidr: 0.0.0.0/0
+
 ansible_aws_access_key: "{{ lookup('env', 'ANSIBLE_AWS_ACCESS_KEY_ID') }}"
 ansible_aws_secret_key: "{{ lookup('env', 'ANSIBLE_AWS_SECRET_ACCESS_KEY') }}"
 ansible_aws_region: "{{ lookup('env', 'ANSIBLE_AWS_REGION') }}"
-
-# General settings
-public_internet_cidr: 0.0.0.0/0
-
-environment_name: "{{ lookup('env', 'ANSIBLE_ENVIRONMENT_NAME') }}"

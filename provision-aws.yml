@@ -223,7 +223,7 @@
       retries: 300
 
     - add_host:
-        name: tower-instance
+        name: tower
         ansible_host: "{{ tower_eip.public_ip }}"
         groups: tower
         tower_db_endpoint: "{{ tower_rds_instance_creation_result.instance.endpoint }}"
