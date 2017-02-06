@@ -1,5 +1,6 @@
 ---
 - name: Add Tower Credentials
+  hosts: localhost
   tower_credential:  
     name: AWS Sales API Key
     description:  AWS API Key for Sales
