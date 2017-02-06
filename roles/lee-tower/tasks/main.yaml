@@ -3,6 +3,7 @@
     name: AWS Sales API Key
     description:  AWS API Key for Sales
     organization: default
+    config_file:~/.tower_cli.cfg
     kind: aws
     username: "{{ aws_access_key }}"
     password: ASK
