@@ -1,8 +1,22 @@
-- name Add Tower Credentials
-  tower_credential:
+---
+- name: Add Amazon AWS Credentials
+  tower_credential:  
     name: AWS Sales API Key
     description:  AWS API Key for Sales
-    organization: default
+    organization: Default
+    config_file: ~/tower_cli.cfg
     kind: aws
     username: "{{ aws_access_key }}"
     password: ASK
+    state: present
+
+- name: Add Amazon SSH keys
+  tower_credential:
+    name: AWS SSH Key
+    description:  AWS SSH Machine Key
+    organization: Default
+    config_file: ~/tower_cli.cfg
+    kind: ssh
+    username: "{{ aws_ssh_user }}"
+    ssh_key_data: "{{ aws_ssh_key }}"
+    state: present
