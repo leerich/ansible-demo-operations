@@ -18,5 +18,17 @@
     config_file: ~/tower_cli.cfg
     kind: ssh
     username: "{{ aws_ssh_user }}"
-    ssh_key_data: "{{ aws_ssh_key }}"
+    ssh_key_data: /root/lrich-key.pem
     state: present
+
+- name: Add AWS Windows Password
+  tower_credential:
+    name: AWS Windows Password
+    description: Windows Password for AWS machines
+    organization: Default
+    config_file: ~/tower_cli.cfg
+    kind: ssh
+    state: present
+    username: Administrator
+    password:  "{{ aws_windows_password }}"
+    
