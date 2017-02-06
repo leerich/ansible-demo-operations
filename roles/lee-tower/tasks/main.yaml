@@ -18,5 +18,5 @@
     config_file: ~/tower_cli.cfg
     kind: ssh
     username: "{{ aws_ssh_user }}"
-    ssh_key_data: "{{ aws_ssh_key }}"
+    ssh_key_data: /root/lrich-key.pem
     state: present
