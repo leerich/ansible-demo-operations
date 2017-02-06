@@ -5,4 +5,4 @@
     organization: default
     kind: aws
     username: "{{ aws_access_key }}"
-    password: "{{ aws_secret_key }}"
+    password: ASK
