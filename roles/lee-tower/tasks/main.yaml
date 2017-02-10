@@ -1,7 +1,5 @@
 ---
 
-- name: Configure Tower Tasks
-  tasks:
-  - include: credentials.yaml
+- include: credentials.yaml
   #- projects.yaml
   
