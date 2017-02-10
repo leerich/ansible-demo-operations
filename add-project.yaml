@@ -34,7 +34,7 @@
     tower_role:
       config_file: ~/tower_cli.cfg
       team: Operations
-      role: "{{ item }}"
+      #role: "{{ item }}"
       project: "{{ project_name }}"
       state: present
     with_items:
