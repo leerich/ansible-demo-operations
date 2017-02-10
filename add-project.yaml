@@ -34,10 +34,10 @@
     tower_role:
       config_file: ~/tower_cli.cfg
       team: Operations
-      #role: "{{ item }}"
+      role: "use"
       project: "{{ project_name }}"
       state: present
-    with_items:
-      - use
-      - admin
+ #   with_items:
+ #     - use
+ #     - admin
     
