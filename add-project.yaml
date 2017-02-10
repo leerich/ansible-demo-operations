@@ -22,13 +22,11 @@
       scm_update_on_launch: yes
       state: present
 
-  - name: ensure all admins have use and admin access to the admin project
-    tower_role:
-      config_file: ~/tower_cli.cfg
-      team: Operations
-      role: "{{ item }}"
-      project: "{{ project_name }}"
-      state: present
-    with_items:
-      - use
-      - admin
+
+- name: Ensure all admins have access to the created project
+  shell: >
+    tower-cli role grant
+    --project "{{ project_name }}"
+    --team "Operations"
+    --type admin
+    
