@@ -1,7 +1,7 @@
 ---
 - name: Create Lee's Demo Examples Project
   tower_project:
-    config_file: ~/tower_cli.cfg
+    config_file: "~/tower_cli.cfg"
     name:  Ansible Examples (LR)
     description:  Example Playbooks from Lee's repository
     organization: Default
@@ -15,7 +15,7 @@
     
 - name: ensure all admins have use and admin access to the admin project
   tower_role:
-    config_file: ~/tower_cli.cfg
+    config_file: "~/tower_cli.cfg"
     team: Operations
     role: "{{ item }}"
     project: Ansible Examples (LR)
