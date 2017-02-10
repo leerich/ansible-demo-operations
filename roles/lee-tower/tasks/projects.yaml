@@ -18,6 +18,7 @@
     team: Operations
     role: "{{ item }}"
     project: Ansible Examples (LR)
+    config_file: ~/tower_cli.cfg
     state: present
   with_items:
     - use
