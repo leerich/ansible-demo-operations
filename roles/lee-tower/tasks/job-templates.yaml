@@ -9,5 +9,5 @@
     playbook: AWS/launch-instances.yml
     inventory: Training
     machine_credential: AWS SSH Key
-    cloud_credential: AWS Sales API Credentials
+    cloud_credential: AWS Sales API Key
     state: present
