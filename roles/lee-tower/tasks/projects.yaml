@@ -25,3 +25,81 @@
 #    - use
 #    - admin
 
+- name: Create Network-Demo Project
+  tower_project:
+    config_file: "~/tower_cli.cfg"
+    name:  Network-Demo
+    description:  Example Playbooks from Lee's repository
+    organization: Default
+    scm_type: git
+    scm_url: https://github.com/leerich/network-demo
+    scm_branch: master
+    scm_clean: yes
+    scm_delete_on_update: no
+    scm_update_on_launch: yes
+    state: present
+
+
+#- name: ensure all admins have use and admin access to the admin project
+#  tower_role:
+#    config_file: "~/tower_cli.cfg"
+#    team: Operations
+#    role: "{{ item }}"
+#    project: Ansible Examples (LR)
+#    state: present
+#  with_items:
+#    - use
+#    - admin
+
+- name: Create Network-POC Project
+  tower_project:
+    config_file: "~/tower_cli.cfg"
+    name:  Network-POC
+    description:  Example Playbooks from Lee's repository
+    organization: Default
+    scm_type: git
+    scm_url: https://github.com/leerich/network-poc
+    scm_branch: master
+    scm_clean: yes
+    scm_delete_on_update: no
+    scm_update_on_launch: yes
+    state: present
+
+
+#- name: ensure all admins have use and admin access to the admin project
+#  tower_role:
+#    config_file: "~/tower_cli.cfg"
+#    team: Operations
+#    role: "{{ item }}"
+#    project: Ansible Examples (LR)
+#    state: present
+#  with_items:
+#    - use
+#    - admin
+
+- name: Create Sandbox Project
+  tower_project:
+    config_file: "~/tower_cli.cfg"
+    name:  Sandbox
+    description:  Example Playbooks from Lee's repository
+    organization: Default
+    scm_type: git
+    scm_url: https://github.com/leerich/sandbox
+    scm_branch: master
+    scm_clean: yes
+    scm_delete_on_update: no
+    scm_update_on_launch: yes
+    state: present
+
+
+#- name: ensure all admins have use and admin access to the admin project
+#  tower_role:
+#    config_file: "~/tower_cli.cfg"
+#    team: Operations
+#    role: "{{ item }}"
+#    project: Ansible Examples (LR)
+#    state: present
+#  with_items:
+#    - use
+#    - admin
+
