@@ -1,5 +1,5 @@
 ---
-- name Create Lee's Demo Examples Project
+- name: Create Lee's Demo Examples Project
   tower_project:
     name:  Ansible Examples (LR)
     description:  Example Playbooks from Lee's repository
