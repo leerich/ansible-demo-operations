@@ -4,5 +4,5 @@
   include: "{{ item }}"
   with_file:
   - credentials.yaml
-  - projects.yaml
+  #- projects.yaml
   
