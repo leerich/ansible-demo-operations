@@ -15,10 +15,10 @@
     
 - name: ensure all admins have use and admin access to the admin project
   tower_role:
+    config_file: ~/tower_cli.cfg
     team: Operations
     role: "{{ item }}"
     project: Ansible Examples (LR)
-    config_file: ~/tower_cli.cfg
     state: present
   with_items:
     - use
