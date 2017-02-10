@@ -1,5 +1,5 @@
 ---
 
 - include: credentials.yaml
-  #- projects.yaml
+- include: projects.yaml
   
