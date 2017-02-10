@@ -1,0 +1,23 @@
+---
+- name Create Lee's Demo Examples Project
+  tower_project:
+    name:  Ansible Examples (LR)
+    description:  Example Playbooks from Lee's repository
+    organization: default
+    scm_type: git
+    scm_url: https://github.com/leerich/ansible-examples
+    scm_branch: master
+    scm_clean: yes
+    scm_delete_on_update: yes
+    scm_update_on_launch: yes
+    state: present
+    
+- name: ensure all admins have use and admin access to the admin project
+  tower_role:
+    team: Operations
+    role: "{{ item }}"
+    project: Ansible Examples (LR)
+    state: present
+  with_items:
+    - use
+    - admin
