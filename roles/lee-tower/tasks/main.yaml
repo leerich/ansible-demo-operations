@@ -2,7 +2,7 @@
 
 - name Configure Tower Tasks
   include: "{{ item }}"
-  with_items:
+  with_file:
   - credentials.yaml
   - projects.yaml
   
