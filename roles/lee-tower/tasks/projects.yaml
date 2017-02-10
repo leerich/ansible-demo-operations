@@ -3,7 +3,7 @@
   tower_project:
     name:  Ansible Examples (LR)
     description:  Example Playbooks from Lee's repository
-    organization: Default
+    #organization: Default
     scm_type: git
     scm_url: https://github.com/leerich/ansible-examples
     scm_branch: master
