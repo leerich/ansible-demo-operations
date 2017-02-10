@@ -9,7 +9,7 @@
     scm_url: https://github.com/leerich/ansible-examples
     scm_branch: master
     scm_clean: yes
-    scm_delete_on_update: yes
+    scm_delete_on_update: no
     scm_update_on_launch: yes
     state: present
 
