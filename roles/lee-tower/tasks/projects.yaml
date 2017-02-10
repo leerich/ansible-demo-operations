@@ -1,6 +1,7 @@
 ---
 - name: Create Lee's Demo Examples Project
   tower_project:
+    config_file: ~/tower_cli.cfg
     name:  Ansible Examples (LR)
     description:  Example Playbooks from Lee's repository
     organization: Default
@@ -10,7 +11,6 @@
     scm_clean: yes
     scm_delete_on_update: yes
     scm_update_on_launch: yes
-    config_file: ~/tower_cli.cfg
     state: present
     
 - name: ensure all admins have use and admin access to the admin project
