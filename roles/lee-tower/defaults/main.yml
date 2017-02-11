@@ -1,7 +1,6 @@
 ---
 sales_demo_job_templates:
   - name: Add Project
-    template: Add Project
     description: User added projects
     job_type: run
     inventory: Tower
@@ -20,3 +19,21 @@ sales_demo_job_templates:
       - name: Operations
         type: admin
 
+  - name: Backup Network Configs
+    description: Backup Network Configs
+    job_type: run
+    inventory: Network Devices
+    project: Network-Demo
+    playbook: backup_configs.yaml
+    ask_inventory_on_launch: no
+    machine_credential: AWS SSH Key
+    cloud_credential: 
+    become_enabled: no
+    #extra_vars:
+      #project_name: sales demo
+      #project_description: Example of user initiated added project
+    team_roles:
+      - name: Operations
+        type: execute
+      - name: Operations
+        type: admin
