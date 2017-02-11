@@ -37,3 +37,22 @@ sales_demo_job_templates:
         type: execute
       - name: Operations
         type: admin
+
+- name: Deploy Linux Lamp Stack Demo
+    description: Deploy Linux Lamp Stack Demo
+    job_type: run
+    inventory: Demo
+    project: Ansible Examples (LR)
+    playbook: lamp_simple_rhel7/site.yml
+    ask_inventory_on_launch: no
+    machine_credential: AWS SSH Key
+    cloud_credential: 
+    become_enabled: yes
+    #extra_vars:
+      #project_name: sales demo
+      #project_description: Example of user initiated added project
+    team_roles:
+      - name: Operations
+        type: execute
+      - name: Operations
+        type: admin
