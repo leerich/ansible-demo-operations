@@ -5,6 +5,6 @@
     config_file: /root/tower_cli.cfg
     name: "{{ item.name }}"
     description: "{{ item.description | default('') }}"
-    organization: Ansible Sales Demo
+    organization: Default
     state: present
   with_items: "{{ sales_demo_teams }}"
