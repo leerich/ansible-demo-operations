@@ -3,7 +3,7 @@ sales_demo_job_templates:
   - name: Add Project
     template: Add Project
     description: "User added projects"
-    job_type: run
+    job_type: "run"
     inventory: Tower
     project: Tower-Operations
     playbook: add-project.yaml
