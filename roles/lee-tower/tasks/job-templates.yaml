@@ -20,8 +20,8 @@
     #description: AAA Test
     #job_type: run
     job_type: "{{ item.job_type }}"
-    #inventory: "{{ item.inventory | default('Demo') }}"
-    inventory: Demo
+    inventory: "{{ item.inventory | default('Demo') }}"
+    #inventory: Demo
     #project: "{{ item.project }}"
     project: Ansible Examples (LR)
     playbook: AWS/launch-instances.yml
