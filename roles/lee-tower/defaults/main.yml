@@ -52,7 +52,7 @@ sales_demo_job_templates:
   - name: Deploy Linux Lamp Stack Demo
     description: Deploy Linux Lamp Stack Demo
     job_type: run
-    inventory: Demo
+    inventory: Demo Inventory
     project: Ansible Examples (LR)
     playbook: lamp_simple_rhel7/site.yml
     ask_inventory_on_launch: no
@@ -92,7 +92,7 @@ sales_demo_job_templates:
   - name: Launch AWS Windows Demo Instances
     description: Launch AWS Windows Demo Instances
     job_type: run
-    inventory: Demo
+    inventory: Demo Inventory
     project: Sandbox
     playbook: demo-aws-launch-by-tag.yml
     ask_inventory_on_launch: no
