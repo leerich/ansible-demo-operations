@@ -72,7 +72,7 @@ sales_demo_job_templates:
   - name: Launch AWS Linux Demo Instances
     description: Launch AWS Linux Demo Instances
     job_type: run
-    inventory: Training
+    inventory: Demo Inventory
     project: Ansible Examples (LR)
     playbook: AWS/launch-instances.yml
     ask_inventory_on_launch: no
