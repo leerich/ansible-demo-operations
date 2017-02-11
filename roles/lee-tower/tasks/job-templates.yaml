@@ -15,12 +15,13 @@
 - name: Create Lee's job templates
   tower_job_template:
     config_file: ~/tower_cli.cfg
-    #name: "{{ item.template }}"
-    name: AAAA TEST
+    name: "{{ item.template }}"
+    #name: AAAA TEST
     description: "{{ item.description }}"
     job-type: "{{ item.job_type }}"
     inventory: "{{ item.inventory | default('Demo') }}"
-    project: "{{ item.project }}"
+    #project: "{{ item.project }}"
+    project: Ansible Examples (LR)
     playbook: "{{ item.playbook }}"
     machine-credential: "{{ item.machine_credential }}"
     cloud-credential: "{{ item.cloud_credential | default('') }}"
