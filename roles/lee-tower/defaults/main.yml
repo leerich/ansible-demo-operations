@@ -1,4 +1,15 @@
 ---
+sales_demo_teams:
+  - name: Sales
+  - name: Engineering
+  - name: QA
+  - name: DevOps
+  - name: Operations
+  - name: Production
+    description: Team with permissions to run all demos.
+  #- name: Sales Demo Admin
+  #  description: Team with permissions to onboard new demo users.
+
 sales_demo_job_templates:
   - name: Add Project
     description: User added projects
