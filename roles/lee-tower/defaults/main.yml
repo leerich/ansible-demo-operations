@@ -96,10 +96,9 @@ sales_demo_job_templates:
     project: Sandbox
     playbook: demo-aws-launch-by-tag.yml
     ask_inventory_on_launch: no
-    machine_credential: Lee's Windows Password
+    machine_credential: "Lee's Windows Password"
     cloud_credential: AWS Sales API Key
     become_enabled: no
-    ask_credentials: no
     #extra_vars:
       #project_name: sales demo
       #project_description: Example of user initiated added project
