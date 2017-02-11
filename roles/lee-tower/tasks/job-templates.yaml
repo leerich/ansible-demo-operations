@@ -32,6 +32,17 @@
     state: present
   with_items: "{{ sales_demo_job_templates }}"
   
+- name: ensure all job template roles are granted
+  tower_role:
+    config_file: ~/.tower_cli.cfg
+    job_template: "{{ item.0.name }}"
+    team: "{{ item.1.name }}"
+    role: "{{ item.1.type }}"
+    state: present
+  with_subelements:
+    - "{{ sales_demo_job_templates }}"
+    - team_roles
+    
 #- name: create all sales demo job templates
 #  shell: >
 #    tower-cli job_template create
