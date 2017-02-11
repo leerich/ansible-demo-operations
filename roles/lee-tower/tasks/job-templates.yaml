@@ -13,7 +13,7 @@
     state: present
 
 - name: Create Lee's job templates
-  tower_job_template
+  tower_job_template:
     config_file: ~/tower_cli.cfg
     name: "{{ item.name }}"
     description: "{{ item.description }}"
