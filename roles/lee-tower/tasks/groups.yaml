@@ -9,7 +9,7 @@
     inventory: Production
     credential: AWS Sales API Key
     source: ec2
-    source_regions: 
+    source_regions: US East
     instance_filters: key-name=lrich-key
     update_on_launch: yes
     overwrite: yes
