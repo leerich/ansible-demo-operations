@@ -19,5 +19,4 @@ sales_demo_job_templates:
         type: execute
       - name: Operations
         type: admin
-  
-  -
+
