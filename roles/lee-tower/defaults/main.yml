@@ -1,5 +1,4 @@
 ---
-
 sales_demo_job_templates:
   - name: Add Project
     template: Add Project
