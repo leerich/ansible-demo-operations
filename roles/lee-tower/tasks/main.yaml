@@ -8,6 +8,9 @@
   
 - name: Add Projects to Tower
   include: projects.yaml
-  
+
+- name: Add Inventories to Tower
+  include: inventories.yaml
+
 - name: Add Job-Templates to Tower
   include: job-templates.yaml 
