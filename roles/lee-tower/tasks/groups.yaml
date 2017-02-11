@@ -1,0 +1,15 @@
+---
+
+- name: Add AWS Group to Tower
+  tower_group:
+    name:  AWS Instances
+    description: AWS Instances
+    state: present
+    config_file: /root/tower_cli.cfg
+    inventory: Production
+    credential: AWS Sales API Key
+    source: ec2
+    source_regions: 
+    instance_filters: key-name=lrich-key
+    update_on_launch: yes
+    overwrite: yes
