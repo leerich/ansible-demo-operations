@@ -56,3 +56,44 @@ sales_demo_job_templates:
         type: execute
       - name: Operations
         type: admin
+
+
+  - name: Launch AWS Linux Demo Instances
+    description: Launch AWS Linux Demo Instances
+    job_type: run
+  inventory: Training
+    project: Ansible Examples (LR)
+    playbook: AWS/launch-instances.yml
+    ask_inventory_on_launch: no
+    machine_credential: AWS SSH Key
+    cloud_credential: AWS Sales API Key
+    become_enabled: no
+    #extra_vars:
+      #project_name: sales demo
+      #project_description: Example of user initiated added project
+    team_roles:
+      - name: Operations
+        type: execute
+      - name: Operations
+        type: admin
+  
+ 
+  - name: Launch AWS Windows Demo Instances
+    description: Launch AWS Windows Demo Instances
+    job_type: run
+    inventory: Demo
+    project: Sandbox
+    playbook: demo-aws-launch-by-tag.yml
+    ask_inventory_on_launch: no
+    machine_credential: Lee's Windows Password
+    cloud_credential: AWS Sales API Key
+    become_enabled: no
+    #extra_vars:
+      #project_name: sales demo
+      #project_description: Example of user initiated added project
+    team_roles:
+      - name: Operations
+        type: execute
+      - name: Operations
+        type: admin
+ 
