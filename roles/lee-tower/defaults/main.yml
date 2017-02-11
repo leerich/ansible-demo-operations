@@ -12,8 +12,8 @@ sales_demo_job_templates:
     cloud_credential: AWS Sales API Key
     become_enabled: yes
     extra_vars:
-      -  project_name: sales demo
-      -  project_description: Example of user initiated added project
+      project_name: sales demo
+      project_description: Example of user initiated added project
     #team_roles:
     #  - name: Operations
     #    type: execute
