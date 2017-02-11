@@ -28,6 +28,7 @@
     ask-inventory: "{{ item.ask_inventory_on_launch | default('no') | bool }}"
     ask-job-type: "{{ item.ask_job_type_on_launch | default('no') | bool }}"
     become-enabled: "{{ item.become_enabled | default('no') | bool }}"
+    state: present
   with_items: "{{ sales_demo_job_templates }}"
   
 #- name: create all sales demo job templates
