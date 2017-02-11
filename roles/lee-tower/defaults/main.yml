@@ -15,7 +15,7 @@ sales_demo_job_templates:
     description: User added projects
     job_type: run
     inventory: Tower
-    project: Tower-Operations
+    project: Tower Operations
     playbook: add-project.yaml
     ask_inventory_on_launch: yes
     machine_credential: Tower Password
