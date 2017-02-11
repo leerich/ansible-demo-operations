@@ -1,5 +1,8 @@
 ---
 
+- name: Add Ansible Groups
+  include: groups.yaml
+  
 - name: Add Ansible Teams
   include: teams.yaml
   
