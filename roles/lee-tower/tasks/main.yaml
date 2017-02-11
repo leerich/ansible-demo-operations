@@ -1,5 +1,10 @@
 ---
 
-#- include: credentials.yaml
-#- include: projects.yaml
-- include: job-templates.yaml 
+- name: Add Credentials to Tower
+  include: credentials.yaml
+  
+- name: Add Projects to Tower
+  include: projects.yaml
+  
+- name: Add Job-Templates to Tower
+  include: job-templates.yaml 
