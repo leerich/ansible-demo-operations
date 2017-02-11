@@ -38,7 +38,7 @@ sales_demo_job_templates:
       - name: Operations
         type: admin
 
-- name: Deploy Linux Lamp Stack Demo
+  - name: Deploy Linux Lamp Stack Demo
     description: Deploy Linux Lamp Stack Demo
     job_type: run
     inventory: Demo
