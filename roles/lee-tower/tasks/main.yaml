@@ -1,7 +1,4 @@
 ---
-
-- name: Add Ansible Groups
-  include: groups.yaml
   
 - name: Add Ansible Teams
   include: teams.yaml
@@ -14,6 +11,9 @@
 
 - name: Add Inventories to Tower
   include: inventories.yaml
-
+  
+- name: Add Ansible Groups
+  include: groups.yaml
+  
 - name: Add Job-Templates to Tower
   include: job-templates.yaml 
