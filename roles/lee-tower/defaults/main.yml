@@ -2,8 +2,8 @@
 sales_demo_job_templates:
   - name: Add Project
     template: Add Project
-    description: "User added projects"
-    job_type: "run"
+    description: User added projects
+    job_type: run
     inventory: Tower
     project: Tower-Operations
     playbook: add-project.yaml
@@ -14,9 +14,9 @@ sales_demo_job_templates:
     extra_vars:
       project_name: sales demo
       project_description: Example of user initiated added project
-    team_roles:
-      - name: Operations
-        type: execute
-      - name: Operations
-        type: admin
+    #team_roles:
+    #  - name: Operations
+    #    type: execute
+    #  - name: Operations
+    #    type: admin
 
