@@ -15,8 +15,8 @@
 - name: Create Lee's job templates
   tower_job_template:
     config_file: ~/tower_cli.cfg
-    #name: "{{ item.name }}"
-    name: AAAA TEST
+    name: "{{ item.name }}"
+    #name: AAAA TEST
     description: AAA Test
     #description: "{{ item.description }}"
     job_type: run
