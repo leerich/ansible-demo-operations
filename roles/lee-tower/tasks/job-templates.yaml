@@ -18,7 +18,7 @@
     --name "{{ item.name }}"
     --description "{{ item.description }}"
     --job-type "{{ item.job_type }}"
-    --inventory "{{ item.inventory : default('Demo') }}"
+    --inventory "{{ item.inventory | default('Demo') }}"
     --project "{{ item.project }}"
     --playbook "{{ item.playbook }}"
     --machine-credential "{{ item.machine_credential }}"
