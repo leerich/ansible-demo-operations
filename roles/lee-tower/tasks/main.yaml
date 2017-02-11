@@ -1,9 +1,9 @@
 ---
 
-- name: Add Credentials to Tower
+#- name: Add Credentials to Tower
 #  include: credentials.yaml
   
-- name: Add Projects to Tower
+#- name: Add Projects to Tower
 #  include: projects.yaml
   
 - name: Add Job-Templates to Tower
