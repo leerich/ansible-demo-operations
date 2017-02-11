@@ -28,7 +28,7 @@
     extra_vars: "{{ item.extra_vars | default('foo: bar') | from_yaml | to_yaml }}"
     ask_inventory: "{{ item.ask_inventory_on_launch | default('no') | bool }}"
     ask_job_type: "{{ item.ask_job_type_on_launch | default('no') | bool }}"
-    become-enabled: "{{ item.become_enabled | default('no') | bool }}"
+    become_enabled: "{{ item.become_enabled | default('no') | bool }}"
     state: present
   with_items: "{{ sales_demo_job_templates }}"
   
