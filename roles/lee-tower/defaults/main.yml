@@ -6,7 +6,7 @@ sales_demo_job_templates:
     job_type: run
     project: Tower-Operations
     playbook: add-project.yaml
-    ask_inventory: yes
+    ask_inventory_on_launch: yes
     machine_credential: Tower Password
     cloud_credential: AWS Sales API Key
     become_enabled: yes
