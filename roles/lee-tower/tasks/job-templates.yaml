@@ -18,9 +18,8 @@
     name: "{{ item.name }}"
     description: "{{ item.description }}"
     #description: AAA Test
-    #description: "{{ item.description }}"
     #job_type: run
-    job-type: "{{ item.job_type }}"
+    job_type: "{{ item.job_type }}"
     #inventory: "{{ item.inventory | default('Demo') }}"
     inventory: Demo
     #project: "{{ item.project }}"
