@@ -103,10 +103,10 @@
     - use
     - admin
     
-- name: Create Tower-Operations Project
+- name: Create Tower Operations Project
   tower_project:
     config_file: "~/tower_cli.cfg"
-    name:  Tower-Operations
+    name:  Tower Operations
     description:  Example Playbooks from Lee's repository
     organization: Default
     scm_type: git
@@ -123,7 +123,7 @@
     config_file: "~/tower_cli.cfg"
     team: Operations
     role: "{{ item }}"
-    project: Tower-Operations
+    project: Tower Operations
     state: present
   with_items:
     - use
