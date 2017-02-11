@@ -2,6 +2,22 @@
 - name: create a local inventory for admin usage
   tower_inventory:
     config_file: ~/tower_cli.cfg
+    name: Demo Inventory
+    description: Default Inventory
+    organization: Default
+    state: present
+
+- name: ensure the demo admin team has access to the local inventory
+  tower_role:
+    config_file: ~/tower_cli.cfg
+    inventory: Demo Inventory
+    team: Operations
+    role: admin
+    state: present
+    
+- name: create a local inventory for admin usage
+  tower_inventory:
+    config_file: ~/tower_cli.cfg
     name: Tower
     description: Inventory that just contains localhost
     organization: Default
