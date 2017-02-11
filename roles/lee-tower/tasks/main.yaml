@@ -1,5 +1,8 @@
 ---
 
+- name: Add Ansible Teams
+  include: teams.yaml
+  
 - name: Add Credentials to Tower
   include: credentials.yaml
   
