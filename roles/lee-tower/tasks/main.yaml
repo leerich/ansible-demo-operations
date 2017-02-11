@@ -1,7 +1,7 @@
 ---
 
-- name: Add Credentials to Tower
-  include: credentials.yaml
+#- name: Add Credentials to Tower
+#  include: credentials.yaml
   
 #- name: Add Projects to Tower
 #  include: projects.yaml
