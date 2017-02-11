@@ -2,7 +2,7 @@
 
 - name: create all sales demo teams
   tower_team:
-    config_file: ~/tower_cli.cfg
+    config_file: /root/tower_cli.cfg
     name: "{{ item.name }}"
     description: "{{ item.description | default('') }}"
     organization: Ansible Sales Demo
