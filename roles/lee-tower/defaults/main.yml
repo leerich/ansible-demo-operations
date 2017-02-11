@@ -1,0 +1,20 @@
+---
+
+sales_demo_job_templates:
+  - name: Add Project
+    description: "User added projects"
+    job_type: run
+    project: Tower-Operations
+    playbook: add-project.yaml
+    ask_inventory: yes
+    machine_credential: Tower Password
+    extra_vars:
+      project_name: sales demo
+      project_description: Example of user initiated added project
+    team_roles:
+      - name: Operations
+        type: execute
+      - name: Operations
+        type: admin
+  
+  -
