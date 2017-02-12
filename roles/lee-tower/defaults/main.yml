@@ -93,8 +93,8 @@ sales_demo_job_templates:
     description: Launch AWS Windows Demo Instances
     job_type: run
     inventory: Demo Inventory
-    project: Sandbox
-    playbook: demo-aws-launch-by-tag.yml
+    project: Ansible Examples (LR)
+    playbook: windows/wamp_haproxy/demo-aws-wamp-launch.yml
     ask_inventory_on_launch: no
     machine_credential: "Lee's Windows Password"
     cloud_credential: AWS Sales API Key
