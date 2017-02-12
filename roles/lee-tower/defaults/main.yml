@@ -96,7 +96,7 @@ sales_demo_job_templates:
     project: Ansible Examples (LR)
     playbook: windows/wamp_haproxy/demo-aws-wamp-launch.yml
     ask_inventory_on_launch: no
-    machine_credential: "Lee's Windows Password"
+    machine_credential: Lee's Windows Password
     cloud_credential: AWS Sales API Key
     become_enabled: no
     #extra_vars:
