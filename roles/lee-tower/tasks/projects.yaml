@@ -25,10 +25,10 @@
     - use
     - admin
 
-- name: Create Network-Demo Project
+- name: Create Network Demo Project
   tower_project:
     config_file: "~/tower_cli.cfg"
-    name:  Network-Demo
+    name:  Network Demo
     description:  Example Playbooks from Lee's repository
     organization: Default
     scm_type: git
