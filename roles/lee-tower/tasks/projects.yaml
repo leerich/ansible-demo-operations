@@ -45,7 +45,7 @@
     config_file: "~/tower_cli.cfg"
     team: Operations
     role: "{{ item }}"
-    project: Network-Demo
+    project: Network Demo
     state: present
   with_items:
     - use
