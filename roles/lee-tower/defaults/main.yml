@@ -34,7 +34,7 @@ sales_demo_job_templates:
     description: Backup Network Configs
     job_type: run
     inventory: Network Devices
-    project: Network-Demo
+    project: Network Demo
     playbook: backup_configs.yaml
     ask_inventory_on_launch: no
     machine_credential: AWS SSH Key
