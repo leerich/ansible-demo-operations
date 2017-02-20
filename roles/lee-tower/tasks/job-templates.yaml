@@ -1,16 +1,16 @@
 ---
-- name: create job template Launching AWS Linux Instances
-  tower_job_template:
-    config_file: ~/tower_cli.cfg
-    name: Launch AWS Linux Demo Instances
-    description: Launch a set of linux instances for Demo
-    job_type: run
-    project: Ansible Examples (LR)
-    playbook: AWS/launch-instances.yml
-    inventory: Production Inventory
-    machine_credential: AWS SSH Key
-    cloud_credential: AWS Sales API Key
-    state: present
+#- name: create job template Launching AWS Linux Instances
+#  tower_job_template:
+#    config_file: ~/tower_cli.cfg
+#    name: Launch AWS Linux Demo Instances
+#    description: Launch a set of linux instances for Demo
+#    job_type: run
+#    project: Ansible Examples (LR)
+#    playbook: AWS/launch-instances.yml
+#    inventory: Production Inventory
+#    machine_credential: AWS SSH Key
+#    cloud_credential: AWS Sales API Key
+#    state: present
 
 - name: Create Lee's job templates
   tower_job_template:
