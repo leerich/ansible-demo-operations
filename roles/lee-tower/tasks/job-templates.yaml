@@ -5,6 +5,7 @@
     --name "{{ item.name }}"
     --description "{{ item.description }}"
     --job-type "{{ item.job_type }}"
+    --inventory "{{ item.inventory }}"
     --project "{{ item.project }}"
     --playbook "{{ item.playbook }}"
     --machine-credential "{{ item.machine_credential }}"
