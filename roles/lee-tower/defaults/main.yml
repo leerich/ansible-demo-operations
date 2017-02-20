@@ -127,7 +127,7 @@ sales_demo_job_templates:
         type: admin
  
   - name: Scan AWS Linux Hosts
-    description: Provision Windows WAMP Demo
+    description: Scan AWS Linux Hosts
     job_type: scan
     inventory: Production
     project: Demo Project
