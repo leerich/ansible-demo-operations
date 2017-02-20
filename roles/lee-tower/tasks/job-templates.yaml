@@ -2,6 +2,22 @@
 - name: create job template Launching AWS Linux Instances
   tower_job_template:
     config_file: ~/tower_cli.cfg
+    name: Scan AWS Linux Hosts
+    description: Scan AWS Linux Hosts
+    job_type: scan
+    project: Ansible Examples (LR)
+    playbook: AWS/launch-instances.yml
+    inventory: Production
+    machine_credential: "AWS SSH Key"
+    network_credential: 
+    cloud_credential: 
+    ask_credential: no
+    become_enabled: yes
+    state: present
+
+- name: create job template Launching AWS Linux Instances
+  tower_job_template:
+    config_file: ~/tower_cli.cfg
     name: Launch AWS Linux Demo Instances
     description: Launch a set of linux instances for Demo
     job_type: run
