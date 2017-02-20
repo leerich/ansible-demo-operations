@@ -37,7 +37,7 @@ sales_demo_job_templates:
     project: Network Demo
     playbook: backup_configs.yaml
     ask_inventory_on_launch: no
-    machine_credential: "AWS SSH Key"
+    machine_credential: AWS SSH Key
     cloud_credential: 
     become_enabled: no
     #extra_vars:
