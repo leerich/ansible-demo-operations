@@ -10,6 +10,7 @@
     inventory: Production
     machine_credential: AWS SSH Key
     cloud_credential: AWS Sales API Key
+    ask_credential: no
     state: present
 
 - name: Create Lee's job templates
