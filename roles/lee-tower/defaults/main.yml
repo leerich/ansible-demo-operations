@@ -130,7 +130,7 @@ sales_demo_job_templates:
     description: Provision Windows WAMP Demo
     job_type: scan
     inventory: Production
-    project: Default
+    project: Demo Project
     playbook:
     ask_inventory_on_launch: no
     machine_credential: "Lee's AWS SSH Key"
