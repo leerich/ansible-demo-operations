@@ -9,7 +9,7 @@
     --project "{{ item.project }}"
     --playbook "{{ item.playbook }}"
     --machine-credential "{{ item.machine_credential }}"
-    --cloud-credential "{{ item.cloud_credential | default('') }}"
+    --cloud-credential "{{ item.cloud_credential | default('no') }}"
     --limit "{{ item.limit | default('') }}"
     --extra-vars "{{ item.extra_vars | default('foo: bar') | from_yaml | to_yaml }}"
     --ask-inventory-on-launch "{{ item.ask_inventory_on_launch | default('no') | bool }}"
