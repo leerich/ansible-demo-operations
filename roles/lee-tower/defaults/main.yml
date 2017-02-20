@@ -107,7 +107,7 @@ sales_demo_job_templates:
       - name: Operations
         type: admin
  
-- name: Provision Windows WAMP Demo
+  - name: Provision Windows WAMP Demo
     description: Provision Windows WAMP Demo
     job_type: run
     inventory: Production
@@ -126,7 +126,7 @@ sales_demo_job_templates:
       - name: Operations
         type: admin
  
-- name: Scan AWS Linux Hosts
+  - name: Scan AWS Linux Hosts
     description: Provision Windows WAMP Demo
     job_type: scan
     inventory: Production
