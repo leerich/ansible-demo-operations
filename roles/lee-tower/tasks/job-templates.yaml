@@ -1,5 +1,5 @@
 ---
-- name: create job template Launching AWS Linux Instances
+- name: create job template Scan AWS Linux Hosts
   tower_job_template:
     config_file: ~/tower_cli.cfg
     name: Scan AWS Linux Hosts
