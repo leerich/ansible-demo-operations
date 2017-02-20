@@ -7,7 +7,7 @@
     job_type: run
     project: Ansible Examples (LR)
     playbook: AWS/launch-instances.yml
-    inventory: Production Inventory
+    inventory: Production
     machine_credential: AWS SSH Key
     cloud_credential: AWS Sales API Key
     state: present
