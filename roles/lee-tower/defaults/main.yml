@@ -126,22 +126,4 @@ sales_demo_job_templates:
       - name: Operations
         type: admin
  
-  - name: Scan AWS Linux Hosts
-    description: Scan AWS Linux Hosts
-    job_type: scan
-    inventory: Production
-    project: Demo Project
-    playbook: ''
-    ask_inventory_on_launch: no
-    machine_credential: "AWS SSH Key"
-    cloud_credential: AWS Sales API Key
-    become_enabled: yes
-    #extra_vars:
-      #project_name: sales demo
-      #project_description: Example of user initiated added project
-    team_roles:
-      - name: Operations
-        type: execute
-      - name: Operations
-        type: admin
  
