@@ -18,7 +18,7 @@ sales_demo_job_templates:
     project: Tower Operations
     playbook: add-project.yaml
     ask_inventory_on_launch: no
-    machine_credential: Tower Password
+    machine_credential: "Tower Password"
     cloud_credential: AWS Sales API Key
     become_enabled: yes
     extra_vars:
@@ -37,7 +37,7 @@ sales_demo_job_templates:
     project: Network Demo
     playbook: backup_configs.yaml
     ask_inventory_on_launch: no
-    machine_credential: AWS SSH Key
+    machine_credential: "AWS SSH Key"
     cloud_credential: 
     become_enabled: no
     #extra_vars:
@@ -56,7 +56,7 @@ sales_demo_job_templates:
     project: Ansible Examples (LR)
     playbook: lamp_simple_rhel7/site.yml
     ask_inventory_on_launch: no
-    machine_credential: AWS SSH Key
+    machine_credential: "AWS SSH Key"
     cloud_credential: 
     become_enabled: yes
     #extra_vars:
@@ -76,7 +76,7 @@ sales_demo_job_templates:
     project: Ansible Examples (LR)
     playbook: AWS/launch-instances.yml
     ask_inventory_on_launch: no
-    machine_credential: AWS SSH Key
+    machine_credential: "AWS SSH Key"
     cloud_credential: AWS Sales API Key
     become_enabled: no
     #extra_vars:
