@@ -13,7 +13,7 @@
     cloud_credential: 
     ask_credential: no
     become_enabled: no
-    verbosity: more_verbose
+    verbosity: verbose
     state: present
 
 - name: create job template Scan AWS Linux Hosts
@@ -30,7 +30,7 @@
     cloud_credential: 
     ask_credential: no
     become_enabled: yes
-    verbosity: more_verbose
+    verbosity: verbose
     state: present
 
 - name: create job template Launching AWS Linux Instances
@@ -66,7 +66,7 @@
     ask_job_type: "{{ item.ask_job_type_on_launch | default('no') | bool }}"
     become_enabled: "{{ item.become_enabled | default('no') | bool }}"
     state: present
-    verbosity: more_verbose
+    verbosity: verbose
     ask_credential: no
   with_items: "{{ sales_demo_job_templates }}"
   
