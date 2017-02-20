@@ -107,3 +107,41 @@ sales_demo_job_templates:
       - name: Operations
         type: admin
  
+- name: Provision Windows WAMP Demo
+    description: Provision Windows WAMP Demo
+    job_type: run
+    inventory: Production
+    project: Ansible Examples (LR)
+    playbook: windows/wamp_haproxy/site.yml
+    ask_inventory_on_launch: no
+    machine_credential: "Lee's Windows Password"
+    cloud_credential: AWS Sales API Key
+    become_enabled: yes
+    #extra_vars:
+      #project_name: sales demo
+      #project_description: Example of user initiated added project
+    team_roles:
+      - name: Operations
+        type: execute
+      - name: Operations
+        type: admin
+ 
+- name: Scan AWS Linux Hosts
+    description: Provision Windows WAMP Demo
+    job_type: scan
+    inventory: Production
+    project: Default
+    playbook:
+    ask_inventory_on_launch: no
+    machine_credential: "Lee's AWS SSH Key"
+    cloud_credential: AWS Sales API Key
+    become_enabled: yes
+    #extra_vars:
+      #project_name: sales demo
+      #project_description: Example of user initiated added project
+    team_roles:
+      - name: Operations
+        type: execute
+      - name: Operations
+        type: admin
+ 
