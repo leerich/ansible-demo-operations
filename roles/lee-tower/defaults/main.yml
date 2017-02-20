@@ -133,7 +133,7 @@ sales_demo_job_templates:
     project: Demo Project
     playbook: Default
     ask_inventory_on_launch: no
-    machine_credential: "Lee's AWS SSH Key"
+    machine_credential: "AWS SSH Key"
     cloud_credential: AWS Sales API Key
     become_enabled: yes
     #extra_vars:
