@@ -5,7 +5,7 @@
     name:  AWS Instances
     description: AWS Instances
     state: present
-    config_file: /root/tower_cli.cfg
+    config_file: ~/tower_cli.cfg
     inventory: Production
     credential: AWS Sales API Key
     source: ec2
