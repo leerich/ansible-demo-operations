@@ -12,7 +12,7 @@
     --cloud-credential "{{ item.cloud_credential | default('no') }}"
     --become-enabled "{{ item.become_enabled | default('no') }}"
     --limit "{{ item.limit | default('') }}"
-    --extra-vars "{{ item.extra_vars | default('foo: bar') | from_yaml | to_yaml }}"
+    --extra-vars "{{ item.extra_vars | default('') | from_yaml | to_yaml }}"
     --ask-inventory-on-launch "{{ item.ask_inventory_on_launch | default('no') | bool }}"
     --ask-job-type-on-launch "{{ item.ask_job_type_on_launch | default('no') | bool }}"
   with_items: "{{ sales_demo_job_templates }}"
