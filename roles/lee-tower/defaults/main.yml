@@ -131,7 +131,7 @@ sales_demo_job_templates:
     job_type: scan
     inventory: Production
     project: Demo Project
-    playbook:
+    playbook: Default
     ask_inventory_on_launch: no
     machine_credential: "Lee's AWS SSH Key"
     cloud_credential: AWS Sales API Key
