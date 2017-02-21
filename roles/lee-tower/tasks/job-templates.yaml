@@ -8,8 +8,8 @@
     project: Network Demo
     playbook: deploy_acl.yaml
     #inventory: Production
-    #machine_credential: "AWS SSH Key"
-    network_credential: "Network Credentials"
+    machine_credential: "AWS SSH Key"
+    #network_credential: "Network Credentials"
     #cloud_credential: "AWS Sales API Key"
     #ask_credential: no
     #become_enabled: no
