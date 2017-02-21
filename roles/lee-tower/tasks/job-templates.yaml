@@ -1,4 +1,20 @@
 ---
+- name: create job template Configure NTP on Network Devices
+  tower_job_template:
+    config_file: ~/tower_cli.cfg
+    name: Configure NTP on Network Devices
+    description: Configure NTP on Network Devices
+    job_type: run
+    project: Network Demo
+    playbook: deploy_ntp.yaml
+    inventory: Network Devices
+    machine_credential:
+    network_credential: Network Credential
+    cloud_credential: 
+    ask_credential: no
+    become_enabled: no
+    state: present
+
 - name: create job template Scan Windows Hosts
   tower_job_template:
     config_file: ~/tower_cli.cfg
