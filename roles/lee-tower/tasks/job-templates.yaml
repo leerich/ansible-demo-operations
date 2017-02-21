@@ -11,8 +11,8 @@
     #machine_credential: "AWS SSH Key"
     #network_credential: "Network Credentials"
     #cloud_credential: "AWS Sales API Key"
-    ask_credential: no
-    become_enabled: no
+    #ask_credential: no
+    #become_enabled: no
     state: present
 
 #- name: create job template Configure NTP on Network Devices
