@@ -9,6 +9,7 @@
     --project "Network Demo"
     --playbook "deploy_acl.yaml"
     --machine-credential "AWS SSH Key"
+    --network-credential "Network Credentials"
     --cloud-credential "no"
     --become-enabled "no"
 
