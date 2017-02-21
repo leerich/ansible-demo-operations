@@ -2,8 +2,8 @@
 - name: create job template Deploy ACLs on Network Devices
   tower_job_template:
     config_file: ~/tower_cli.cfg
-    name: Deploy ACLs on Network Devices
-    description: Deploy ACLs on Network Devices
+    name: "Deploy ACLs on Network Devices"
+    description: "Deploy ACLs on Network Devices"
     job_type: run
     project: Network Demo
     playbook: deploy_acl.yaml
