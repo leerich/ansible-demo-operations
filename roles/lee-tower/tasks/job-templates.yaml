@@ -8,6 +8,7 @@
     project: Network Demo
     playbook: deploy_acl.yaml
     inventory: Network Devices
+    machine_credential: "AWS SSH Key"
     network_credential: Network Credentials
     ask_credential: no
     become_enabled: no
