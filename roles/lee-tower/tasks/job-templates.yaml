@@ -1,19 +1,19 @@
 ---
-#- name: create job template Deploy ACLs on Network Devices
-#  tower_job_template:
-#    config_file: ~/tower_cli.cfg
-#    name: Deploy ACLs on Network Devices
-#    description: Deploy ACLs on Network Devices
-#    job_type: run
-#    project: Network Demo
-#    playbook: deploy_acl.yaml
-#    inventory: "Network Devices"
-#    #machine_credential: "AWS SSH Key"
-#    network_credential: "Network Credentials"
-    #cloud_credential: "AWS Sales API Key"
-#    ask_credential: no
-#    become_enabled: no
-#    state: present
+- name: create job template Deploy ACLs on Network Devices
+  tower_job_template:
+    config_file: ~/tower_cli.cfg
+    name: Deploy ACLs on Network Devices
+    description: Deploy ACLs on Network Devices
+    job_type: run
+    project: Network Demo
+    playbook: deploy_acl.yaml
+    inventory: "Network Devices"
+    machine_credential: "AWS SSH Key"
+    network_credential: "Network Credentials"
+    cloud_credential: "AWS Sales API Key"
+    ask_credential: no
+    become_enabled: no
+    state: present
 
 #- name: create job template Configure NTP on Network Devices
 #  tower_job_template:
