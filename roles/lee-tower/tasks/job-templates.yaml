@@ -9,7 +9,7 @@
     playbook: deploy_ntp.yaml
     inventory: Network Devices
     machine_credential:
-    network_credential: Network Credential
+    network_credential: Network Credentials
     cloud_credential: 
     ask_credential: no
     become_enabled: no
