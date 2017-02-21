@@ -10,6 +10,7 @@
     inventory: Network Devices
     machine_credential: "AWS SSH Key"
     network_credential: Network Credentials
+    cloud_credential:
     ask_credential: no
     become_enabled: no
     state: present
