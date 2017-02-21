@@ -1,4 +1,17 @@
 ---
+- name: create job template Deploy ACLs on Network Devices
+    config_file: ~/tower_cli.cfg
+    name: Deploy ACLs on Network Devices
+    description: Deploy ACLs on Network Devices
+    job_type: run
+    project: Network Demo
+    playbook: deploy_acl.yaml
+    inventory: Network Devices
+    network_credential: Network Credentials
+    ask_credential: no
+    become_enabled: no
+    state: present
+
 - name: create job template Configure NTP on Network Devices
   tower_job_template:
     config_file: ~/tower_cli.cfg
