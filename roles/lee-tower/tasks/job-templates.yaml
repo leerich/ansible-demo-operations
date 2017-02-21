@@ -7,13 +7,13 @@
     job_type: run
     project: Network Demo
     playbook: deploy_acl.yaml
-    inventory: Production
+    #inventory: Production
     #machine_credential: "AWS SSH Key"
     #network_credential: "Network Credentials"
     #cloud_credential: "AWS Sales API Key"
     #ask_credential: no
     #become_enabled: no
-    state: present
+    #state: present
 
 #- name: create job template Configure NTP on Network Devices
 #  tower_job_template:
