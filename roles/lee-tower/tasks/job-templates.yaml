@@ -9,8 +9,8 @@
     playbook: deploy_acl.yaml
     inventory: Production
     machine_credential: "AWS SSH Key"
-    #network_credential: "Network Credentials"
-    #cloud_credential: "AWS Sales API Key"
+    network_credential: "Network Credentials"
+    cloud_credential: "AWS Sales API Key"
     ask_credential: yes
     #become_enabled: no
     #state: present
