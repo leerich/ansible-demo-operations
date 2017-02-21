@@ -12,9 +12,8 @@
     network_credential: "Network Credentials"
     cloud_credential: "AWS Sales API Key"
     ask_credential: yes
-    #become_enabled: no
+    become_enabled: no
     #state: present
-
 #- name: create job template Configure NTP on Network Devices
 #  tower_job_template:
 #    config_file: ~/tower_cli.cfg
@@ -30,7 +29,6 @@
 #    ask_credential: no
 #    become_enabled: no
 #    state: present
-
 - name: create job template Scan Windows Hosts
   tower_job_template:
     config_file: ~/tower_cli.cfg
