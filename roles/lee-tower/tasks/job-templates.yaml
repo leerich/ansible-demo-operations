@@ -1,4 +1,18 @@
 ---
+- name: Deploy ACLs on Network Devices
+  shell: >
+    tower-cli job_template create
+    --name "Deploy ACLs on Network Devices"
+    --description "Deploy ACLs on Network Devices"
+    --job-type "run"
+    --inventory "Network Devices"
+    --project "Network Demo"
+    --playbook "deploy_acl.yaml"
+    --machine-credential "AWS SSH Key"
+    --cloud-credential "no"
+    --become-enabled "no"
+
+
 - name: create job template Deploy ACLs on Network Devices
   tower_job_template:
     config_file: ~/tower_cli.cfg
