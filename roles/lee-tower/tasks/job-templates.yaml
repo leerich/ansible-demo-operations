@@ -39,7 +39,7 @@
 #    inventory: Network Devices
 #    machine_credential:
 #    network_credential: Network Credentials
-#    cloud_credential: 
+#    cloud_credential:
 #    ask_credential: no
 #    become_enabled: no
 #    state: present
@@ -53,8 +53,8 @@
     playbook: AWS/launch-instances.yml
     inventory: Production
     machine_credential: "AWS Windows Password"
-    network_credential: 
-    cloud_credential: 
+    network_credential:
+    cloud_credential:
     ask_credential: no
     become_enabled: no
     state: present
@@ -69,8 +69,8 @@
     playbook: AWS/launch-instances.yml
     inventory: Production
     machine_credential: "AWS SSH Key"
-    network_credential: 
-    cloud_credential: 
+    network_credential:
+    cloud_credential:
     ask_credential: no
     become_enabled: yes
     state: present
@@ -85,7 +85,7 @@
     playbook: AWS/launch-instances.yml
     inventory: Production
     machine_credential: "AWS SSH Key"
-    network_credential: 
+    network_credential:
     cloud_credential: "AWS Sales API Key"
     ask_credential: no
     become_enabled: no
@@ -112,7 +112,7 @@
     state: present
     ask_credential: no
   with_items: "{{ sales_demo_job_templates }}"
-  
+
 - name: ensure all job template roles are granted
   tower_role:
     config_file: ~/tower_cli.cfg
@@ -123,7 +123,7 @@
   with_subelements:
     - "{{ sales_demo_job_templates }}"
     - team_roles
-    
+
 #- name: create all sales demo job templates
 #  shell: >
 #    tower-cli job_template create
@@ -141,5 +141,3 @@
     #--ask-job-type-on-launch "{{ item.ask_job_type_on_launch | default('no') | bool }}"
 #    --become-enabled "{{ item.become_enabled | default('no') | bool }}"
 #  with_items: "{{ sales_demo_job_templates }}"
-
-
