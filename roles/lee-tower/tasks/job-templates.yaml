@@ -90,6 +90,7 @@
     ask_credential: no
     become_enabled: no
     state: present
+  tags: skip
 
 - name: Create Lee's job templates
   tower_job_template:
