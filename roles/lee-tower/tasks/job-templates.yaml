@@ -87,7 +87,8 @@
     machine_credential: "AWS SSH Key"
     network_credential: 
     cloud_credential: "AWS Sales API Key"
-    ask_credential: yes
+    ask_credential: no
+    become_enabled: no
     state: present
 
 - name: Create Lee's job templates
