@@ -21,6 +21,7 @@ sales_demo_job_templates:
     machine_credential: "Tower Password"
     cloud_credential: "AWS Sales API Key"
     become_enabled: yes
+    ask_credential: yes
     extra_vars:
       project_name: "sales demo"
       #project_description: Example of user initiated added project
