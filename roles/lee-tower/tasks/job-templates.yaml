@@ -11,7 +11,7 @@
     --machine-credential "AWS SSH Key"
     --network-credential "Network Credentials"
     --become-enabled "no"
-  #tags: skip
+  tags: skip
 
 - name: create job template Deploy ACLs on Network Devices
   tower_job_template:
