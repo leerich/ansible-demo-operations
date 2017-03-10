@@ -18,11 +18,11 @@ sales_demo_job_templates:
     project: Tower Operations
     playbook: add-project.yaml
     ask_inventory_on_launch: no
-    machine_credential: Tower Password
-    cloud_credential: AWS Sales API Key
+    machine_credential: "Tower Password"
+    cloud_credential: "AWS Sales API Key"
     become_enabled: yes
     extra_vars:
-      project_name: sales demo
+      project_name: "sales demo"
       #project_description: Example of user initiated added project
     team_roles:
       - name: Operations
