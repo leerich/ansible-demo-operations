@@ -206,6 +206,7 @@ def update_fields(p):
         'ask_limit' :'ask_limit_on_launch',
         'ask_tags': 'ask_tags_on_launch',
         'ask_job_type': 'ask_job_type_on_launch',
+        'machine_credential': 'credential',
     }
 
     params_update = {}
