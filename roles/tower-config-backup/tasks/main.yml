@@ -1,1 +1,14 @@
 ---
+
+- name: Pull Job Templates from Tower
+  uri:
+    url: "https://tower2/api/v1/job_templates/"
+    username: "{{ tower_admin }}"
+    password: "{{ tower_password }}"
+    body_format: json
+    method: GET
+  register: job_templates
+  
+- name: "Display all template names"
+  debug: var=item
+  with_items: "{{results|json_query('Name')}}"
