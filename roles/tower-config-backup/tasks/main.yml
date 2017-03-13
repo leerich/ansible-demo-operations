@@ -11,6 +11,7 @@
   register: job_templates
   
 - name: "Display all template names"
-  debug: var=job_templates
-  #with_items: "{{job_templates|json_query('results.Name')}}"
+  #debug: var=job_templates
+  debug: var=item
+  with_items: "{{job_templates|json_query('job_templates.json.results.Name')}}"
   #with_items: "{{ job_templates }}"
