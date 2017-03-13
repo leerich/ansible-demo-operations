@@ -18,5 +18,5 @@
 - name: "Display all template names"
   #debug: var=job_templates
   debug: var=item
-  with_items: "{{job_templates|json_query('json.results[0].name')}}"
+  with_items: "{{job_templates|json_query('json.results[].name')}}"
   #with_items: "{{ job_templates }}"
