@@ -12,7 +12,7 @@
 
 - name: "Display all template names"
   #debug: var=job_templates
-  debug: var=job_templates|type_debug
+  debug: var=(job_templates|type_debug)
   #with_items: "{{ job_templates|type_debug }}"
   
 - name: "Display all template names"
