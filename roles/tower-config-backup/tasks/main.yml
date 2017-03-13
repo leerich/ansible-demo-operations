@@ -10,13 +10,13 @@
     validate_certs: no
   register: job_templates
 
-- name: "Display all template names"
-  debug: var=job_templates
+#- name: "Display all template names"
+#  debug: var=job_templates
   #debug: var=(job_templates|type_debug)
   #with_items: "{{ job_templates|type_debug }}"
   
 - name: "Display all template names"
   #debug: var=job_templates
   debug: var=item
-  with_items: "{{job_templates|json_query('json.results')}}"
+  with_items: "{{job_templates|json_query('json.results[1]')}}"
   #with_items: "{{ job_templates }}"
