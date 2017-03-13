@@ -3,7 +3,7 @@
 - name: Pull Job Templates from Tower
   uri:
     url: "https://tower2/api/v1/job_templates/"
-    username: "{{ tower_admin }}"
+    username: admin
     password: "{{ tower_password }}"
     body_format: json
     method: GET
