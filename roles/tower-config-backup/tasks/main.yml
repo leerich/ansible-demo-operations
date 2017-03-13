@@ -3,8 +3,8 @@
 - name: Pull Job Templates from Tower
   uri:
     url: "https://tower2/api/v1/job_templates/"
-    username: jack
-    password: crapbucket1
+    user: "{{ tower_admin }}"
+    password: "{{ tower_password }}"
     body_format: json
     method: GET
     validate_certs: no
