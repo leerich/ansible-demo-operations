@@ -7,6 +7,7 @@
     password: "{{ tower_password }}"
     body_format: json
     method: GET
+    validate_certs: no
   register: job_templates
   
 - name: "Display all template names"
