@@ -10,6 +10,10 @@
     validate_certs: no
   register: job_templates
 
+- name: Remove config file if it exists
+  file:
+    path: /root/job_templates.config
+    state: absent
 #- name: "Display all template names"
 #  debug: var=job_templates
   #debug: var=(job_templates|type_debug)
@@ -42,18 +46,3 @@
     - "{{job_templates|json_query('json.results[].job_type')}}"
     - "{{job_templates|json_query('json.results[].become_enabled')}}"
 
-- name: "Display all template names"
-  #debug: var=job_templates
-  debug: msg="Name={{item.0}}, Project={{item.1}}"
-  with_together: 
-    - "{{job_templates|json_query('json.results[].name')}}"
-    - "{{job_templates|json_query('json.results[].summary_fields.project.name')}}"
-    - "{{job_templates|json_query('json.results[].summary_fields.inventory.name')}}"
-    - "{{job_templates|json_query('json.results[].summary_fields.cloud_credential.name')}}"
-    - "{{job_templates|json_query('json.results[].summary_fields.credential.name')}}"
-    - "{{job_templates|json_query('json.results[].summary_fields.network_credential.name')}}"
-    - "{{job_templates|json_query('json.results[].job_type')}}"
-    - "{{job_templates|json_query('json.results[].playbook')}}"
-    - "{{job_templates|json_query('json.results[].become_enabled')}}"
-  #with_items: "{{ job_templates }}"
-  tags: skip
