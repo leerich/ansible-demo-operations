@@ -21,4 +21,11 @@
   with_together: 
     - "{{job_templates|json_query('json.results[].name')}}"
     - "{{job_templates|json_query('json.results[].summary_fields.project.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.inventory.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.cloud_credential.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.credential.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.network_credential.name')}}"
+    - "{{job_templates|json_query('json.results[].job_type')}}"
+    - "{{job_templates|json_query('json.results[].playbook')}}"
+    - "{{job_templates|json_query('json.results[].become_enabled')}}"
   #with_items: "{{ job_templates }}"
