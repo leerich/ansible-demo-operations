@@ -30,7 +30,7 @@
     echo "    scm_update_on_launch: {{item.7}}" >> /root/backup/projects.config
     echo "    scm_update_cache_timeout: {{item.8}}" >> /root/backup/projects.config
     echo "    scm_delete_on_update: {{item.9}}" >> /root/backup/projects.config
-    echo "    organization: {{item.10}}" >> /root/backup/projects.config
+    echo -e "    organization: {{item.10}}\n" >> /root/backup/projects.config
   with_together: 
     - "{{job_templates|json_query('json.results[].name')}}"
     - "{{job_templates|json_query('json.results[].description')}}"
