@@ -8,7 +8,7 @@
     body_format: json
     method: GET
     validate_certs: no
-  register: job_templates
+  register: projects
 
 - name: Remove config file if it exists
   file:
@@ -31,15 +31,15 @@
     echo "    scm_update_cache_timeout: {{item.8}}" >> /root/backup/projects.config
     echo "    scm_delete_on_update: {{item.9}}" >> /root/backup/projects.config
     echo -e "    organization: {{item.10}}\n" >> /root/backup/projects.config
-  with_together: 
-    - "{{job_templates|json_query('json.results[].name')}}"
-    - "{{job_templates|json_query('json.results[].description')}}"
-    - "{{job_templates|json_query('json.results[].scm_type')}}"
-    - "{{job_templates|json_query('json.results[].scm_url')}}"
-    - "{{job_templates|json_query('json.results[].scm_branch')}}"
-    - "{{job_templates|json_query('json.results[].scm_credential')}}"
-    - "{{job_templates|json_query('json.results[].scm_clean')}}"
-    - "{{job_templates|json_query('json.results[].scm_update_on_launch')}}"
-    - "{{job_templates|json_query('json.results[].scm_update_cache_timeout')}}"
-    - "{{job_templates|json_query('json.results[].scm_delete_on_update')}}"
-    - "{{job_templates|json_query('json.results[].summary_fields.organization.name')}}"
+  with_together:
+    - "{{projects|json_query('json.results[].name')}}"
+    - "{{projects|json_query('json.results[].description')}}"
+    - "{{projects|json_query('json.results[].scm_type')}}"
+    - "{{projects|json_query('json.results[].scm_url')}}"
+    - "{{projects|json_query('json.results[].scm_branch')}}"
+    - "{{projects|json_query('json.results[].scm_credential')}}"
+    - "{{projects|json_query('json.results[].scm_clean')}}"
+    - "{{projects|json_query('json.results[].scm_update_on_launch')}}"
+    - "{{projects|json_query('json.results[].scm_update_cache_timeout')}}"
+    - "{{projects|json_query('json.results[].scm_delete_on_update')}}"
+    - "{{projects|json_query('json.results[].summary_fields.organization.name')}}"
