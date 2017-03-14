@@ -18,8 +18,8 @@
     path: "{{backup_path}}/inventories.config"
     state: absent
 
-- name: Create Project Heading
-  shell: echo "Tower_inventories:" >> "{{backup_path}}/inventories.config"
+- name: Create Inventories Heading
+  shell: echo "tower_inventories:" >> "{{backup_path}}/inventories.config"
 
 - name: Create Job Templates Backup File
   shell: |

@@ -19,7 +19,7 @@
     state: absent
 
 - name: Create Project Heading
-  shell: echo "Tower_Projects:" >> "{{backup_path}}/projects.config"
+  shell: echo "tower_projects:" >> "{{backup_path}}/projects.config"
 
 - name: Create Job Templates Backup File
   shell: |

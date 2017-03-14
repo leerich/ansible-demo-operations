@@ -18,6 +18,9 @@
     path: "{{backup_path}}/job_templates.config"
     state: absent
 
+- name: Create Job Template Heading
+  shell: echo "tower_job_templates:" >> "{{backup_path}}/inventories.config"
+
 - name: Create Job Templates Backup File
   shell: |
     echo "  - name: {{item.0}}" >> "{{backup_path}}/job_templates.config"
