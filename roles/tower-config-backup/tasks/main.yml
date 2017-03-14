@@ -17,7 +17,7 @@
   
 - name: "Display all template names"
   #debug: var=job_templates
-  debug: msg="Name={{item.0}} Project={{item.1}}"
+  debug: msg="Name={{item.0}}, Project={{item.1}}"
   with_together: 
     - "{{job_templates|json_query('json.results[].name')}}"
     - "{{job_templates|json_query('json.results[].summary_fields.project.name')}}"
