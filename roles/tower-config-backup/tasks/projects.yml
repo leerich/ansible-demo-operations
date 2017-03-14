@@ -1,7 +1,7 @@
 ---
-- hosts: all
-  vars:
-    backup_path: /root/backup
+- name: set backup_path fact
+  set_fact:
+    backup_path: "/root/backup"
 
 - name: Pull Job Templates from Tower
   uri:
@@ -19,7 +19,7 @@
     state: absent
 
 - name: Create Project Heading
-  shell: echo "Tower_Projects:" >> "{{backup_path}}"/projects.config
+  shell: echo "Tower_Projects:" >> "{{backup_path}}/projects.config"
 
 - name: Create Job Templates Backup File
   shell: |
