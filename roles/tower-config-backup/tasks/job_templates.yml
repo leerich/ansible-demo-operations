@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    backup_path: "{{backup_path}}"/backup
+    backup_path: /root/backup
 
 - name: Pull Job Templates from Tower
   uri:
