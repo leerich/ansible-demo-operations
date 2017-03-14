@@ -34,3 +34,4 @@
     - "{{job_templates|json_query('json.results[].playbook')}}"
     - "{{job_templates|json_query('json.results[].become_enabled')}}"
   #with_items: "{{ job_templates }}"
+  tags: skip
