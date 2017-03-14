@@ -14,7 +14,12 @@
 #  debug: var=job_templates
   #debug: var=(job_templates|type_debug)
   #with_items: "{{ job_templates|type_debug }}"
-  
+- name: Create Job Template Backup File
+  template:
+    src: job_templates.j2
+    dest: /root/job_templates.config
+
+
 - name: "Display all template names"
   #debug: var=job_templates
   debug: msg="Name={{item.0}}, Project={{item.1}}"
