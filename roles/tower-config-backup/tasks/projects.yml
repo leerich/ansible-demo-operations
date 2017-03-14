@@ -21,7 +21,7 @@
 - name: Create Project Heading
   shell: echo "tower_projects:" >> "{{backup_path}}/projects.config"
 
-- name: Create Job Templates Backup File
+- name: Create Projects Backup File
   shell: |
     echo "  - name: {{item.0}}" >> "{{backup_path}}/projects.config"
     echo "    description: {{item.1}}" >> "{{backup_path}}/projects.config"
