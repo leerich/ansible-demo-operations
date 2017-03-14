@@ -5,44 +5,44 @@
 
 - name: Pull Job Templates from Tower
   uri:
-    url: "https://tower2/api/v1/projects/"
+    url: "https://tower2/api/v1/inventories/"
     user: "{{ tower_admin }}"
     password: "{{ tower_password }}"
     body_format: json
     method: GET
     validate_certs: no
-  register: projects
+  register: inventories
 
 - name: Remove config file if it exists
   file:
-    path: "{{backup_path}}/projects.config"
+    path: "{{backup_path}}/inventories.config"
     state: absent
 
 - name: Create Project Heading
-  shell: echo "Tower_Projects:" >> "{{backup_path}}/projects.config"
+  shell: echo "Tower_inventories:" >> "{{backup_path}}/inventories.config"
 
 - name: Create Job Templates Backup File
   shell: |
-    echo "  - name: {{item.0}}" >> "{{backup_path}}/projects.config"
-    echo "    description: {{item.1}}" >> "{{backup_path}}/projects.config"
-    echo "    scm_type: {{item.2}}" >> "{{backup_path}}/projects.config"
-    echo "    scm_url:  {{item.3}}" >> "{{backup_path}}/projects.config"
-    echo "    scm_branch: {{item.4}}" >> "{{backup_path}}/projects.config"
-    echo "    scm_credential: {{item.5}}" >> "{{backup_path}}/projects.config"
-    echo "    scm_clean: {{item.6}}" >> "{{backup_path}}/projects.config"
-    echo "    scm_update_on_launch: {{item.7}}" >> "{{backup_path}}/projects.config"
-    echo "    scm_update_cache_timeout: {{item.8}}" >> "{{backup_path}}/projects.config"
-    echo "    scm_delete_on_update: {{item.9}}" >> "{{backup_path}}/projects.config"
-    echo -e "    organization: {{item.10}}\n" >> "{{backup_path}}/projects.config"
+    echo "  - name: {{item.0}}" >> "{{backup_path}}/inventories.config"
+    echo "    description: {{item.1}}" >> "{{backup_path}}/inventories.config"
+    echo "    scm_type: {{item.2}}" >> "{{backup_path}}/inventories.config"
+    echo "    scm_url:  {{item.3}}" >> "{{backup_path}}/inventories.config"
+    echo "    scm_branch: {{item.4}}" >> "{{backup_path}}/inventories.config"
+    echo "    scm_credential: {{item.5}}" >> "{{backup_path}}/inventories.config"
+    echo "    scm_clean: {{item.6}}" >> "{{backup_path}}/inventories.config"
+    echo "    scm_update_on_launch: {{item.7}}" >> "{{backup_path}}/inventories.config"
+    echo "    scm_update_cache_timeout: {{item.8}}" >> "{{backup_path}}/inventories.config"
+    echo "    scm_delete_on_update: {{item.9}}" >> "{{backup_path}}/inventories.config"
+    echo -e "    organization: {{item.10}}\n" >> "{{backup_path}}/inventories.config"
   with_together:
-    - "{{projects|json_query('json.results[].name')}}"
-    - "{{projects|json_query('json.results[].description')}}"
-    - "{{projects|json_query('json.results[].scm_type')}}"
-    - "{{projects|json_query('json.results[].scm_url')}}"
-    - "{{projects|json_query('json.results[].scm_branch')}}"
-    - "{{projects|json_query('json.results[].scm_credential')}}"
-    - "{{projects|json_query('json.results[].scm_clean')}}"
-    - "{{projects|json_query('json.results[].scm_update_on_launch')}}"
-    - "{{projects|json_query('json.results[].scm_update_cache_timeout')}}"
-    - "{{projects|json_query('json.results[].scm_delete_on_update')}}"
-    - "{{projects|json_query('json.results[].summary_fields.organization.name')}}"
+    - "{{inventories|json_query('json.results[].name')}}"
+    - "{{inventories|json_query('json.results[].description')}}"
+    - "{{inventories|json_query('json.results[].scm_type')}}"
+    - "{{inventories|json_query('json.results[].scm_url')}}"
+    - "{{inventories|json_query('json.results[].scm_branch')}}"
+    - "{{inventories|json_query('json.results[].scm_credential')}}"
+    - "{{inventories|json_query('json.results[].scm_clean')}}"
+    - "{{inventories|json_query('json.results[].scm_update_on_launch')}}"
+    - "{{inventories|json_query('json.results[].scm_update_cache_timeout')}}"
+    - "{{inventories|json_query('json.results[].scm_delete_on_update')}}"
+    - "{{inventories|json_query('json.results[].summary_fields.organization.name')}}"
