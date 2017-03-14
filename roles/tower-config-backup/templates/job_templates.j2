@@ -1,6 +1,0 @@
-sales_demo_job_templates:
-{% for item in job_templates() %}
-  - item: "{{item}}"
-  - name: "{{item|json_query('json.results[].name')}}"
-  
-{% endfor %}
