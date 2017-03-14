@@ -21,15 +21,25 @@
 - name: Create Job Templates Backup File
   shell: |
     echo "  - name: {{item.0}}" >> /root/job_templates.config
+    echo "    description: {{item.1}}" >> /root/job_templates.config
+    echo "    inventory: {{item.2}}" >> /root/job_templates.config
+    echo "    project:  {{item.3}}" >> /root/job_templates.config
+    echo "    playbook: {{item.4}}" >> /root/job_templates.config
+    echo "    credential: {{item.5}}" >> /root/job_templates.config
+    echo "    cloud_credential: {{item.6}}" >> /root/job_templates.config
+    echo "    network_credential: {{item.7}}" >> /root/job_templates.config
+    echo "    job_type: {{item.8}}" >> /root/job_templates.config
+    echo "    become_enabled: {{item.9}}" >> /root/job_templates.config
   with_together: 
     - "{{job_templates|json_query('json.results[].name')}}"
-    - "{{job_templates|json_query('json.results[].summary_fields.project.name')}}"
+    - "{{job_templates|json_query('json.results[].description')}}"
     - "{{job_templates|json_query('json.results[].summary_fields.inventory.name')}}"
-    - "{{job_templates|json_query('json.results[].summary_fields.cloud_credential.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.project.name')}}"
+    - "{{job_templates|json_query('json.results[].playbook')}}"
     - "{{job_templates|json_query('json.results[].summary_fields.credential.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.cloud_credential.name')}}"
     - "{{job_templates|json_query('json.results[].summary_fields.network_credential.name')}}"
     - "{{job_templates|json_query('json.results[].job_type')}}"
-    - "{{job_templates|json_query('json.results[].playbook')}}"
     - "{{job_templates|json_query('json.results[].become_enabled')}}"
 
 - name: "Display all template names"
