@@ -1,5 +1,8 @@
 ---
 
+- name: Backup Inventories
+  include: inventories.yml
+
 - name: Backup Job Templates
   include: job_templates.yml
 
