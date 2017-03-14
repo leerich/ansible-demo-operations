@@ -1,0 +1,43 @@
+---
+
+- name: Pull Job Templates from Tower
+  uri:
+    url: "https://tower2/api/v1/projects/"
+    user: "{{ tower_admin }}"
+    password: "{{ tower_password }}"
+    body_format: json
+    method: GET
+    validate_certs: no
+  register: job_templates
+
+- name: Remove config file if it exists
+  file:
+    path: /root/backup/projects.config
+    state: absent
+
+- name: Create Project Heading
+  shell: echo "Tower_Projects:" >> /root/backup/projects.config
+
+- name: Create Job Templates Backup File
+  shell: |
+    echo "  - name: {{item.0}}" >> /root/backup/projects.config
+    echo "    description: {{item.1}}" >> /root/backup/projects.config
+    echo "    inventory: {{item.2}}" >> /root/backup/projects.config
+    echo "    project:  {{item.3}}" >> /root/backup/projects.config
+    echo "    playbook: {{item.4}}" >> /root/backup/projects.config
+    echo "    credential: {{item.5}}" >> /root/backup/projects.config
+    echo "    cloud_credential: {{item.6}}" >> /root/backup/projects.config
+    echo "    network_credential: {{item.7}}" >> /root/backup/projects.config
+    echo "    job_type: {{item.8}}" >> /root/backup/projects.config
+    echo -e "    become_enabled: {{item.9}}\n" >> /root/backup/projects.config
+  with_together: 
+    - "{{job_templates|json_query('json.results[].name')}}"
+    - "{{job_templates|json_query('json.results[].description')}}"
+    - "{{job_templates|json_query('json.results[].scm_type')}}"
+    - "{{job_templates|json_query('json.results[].scm_url')}}"
+    - "{{job_templates|json_query('json.results[].scm_branch')}}"
+    - "{{job_templates|json_query('json.results[].scm_credential')}}"
+    - "{{job_templates|json_query('json.results[].scm_clean')}}"
+    - "{{job_templates|json_query('json.results[].scm_update_on_launch')}}"
+    - "{{job_templates|json_query('json.results[].scm_update_cache_timeout')}}"
+    - "{{job_templates|json_query('json.results[].scm_delete_on_update')}}"
