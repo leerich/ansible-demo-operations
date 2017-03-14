@@ -29,7 +29,8 @@
     echo "    scm_clean: {{item.6}}" >> /root/backup/projects.config
     echo "    scm_update_on_launch: {{item.7}}" >> /root/backup/projects.config
     echo "    scm_update_cache_timeout: {{item.8}}" >> /root/backup/projects.config
-    echo -e "    scm_delete_on_update: {{item.9}}\n" >> /root/backup/projects.config
+    echo "    scm_delete_on_update: {{item.9}}" >> /root/backup/projects.config
+    echo "    organization: {{item.10}}" >> /root/backup/projects.config
   with_together: 
     - "{{job_templates|json_query('json.results[].name')}}"
     - "{{job_templates|json_query('json.results[].description')}}"
@@ -41,3 +42,4 @@
     - "{{job_templates|json_query('json.results[].scm_update_on_launch')}}"
     - "{{job_templates|json_query('json.results[].scm_update_cache_timeout')}}"
     - "{{job_templates|json_query('json.results[].scm_delete_on_update')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.organization.name')}}"
