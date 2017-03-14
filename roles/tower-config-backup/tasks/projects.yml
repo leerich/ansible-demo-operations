@@ -1,4 +1,7 @@
 ---
+- hosts: all
+  vars:
+    backup_path: "{{backup_path}}"/backup
 
 - name: Pull Job Templates from Tower
   uri:
@@ -12,25 +15,25 @@
 
 - name: Remove config file if it exists
   file:
-    path: /root/backup/projects.config
+    path: "{{backup_path}}"/backup/projects.config
     state: absent
 
 - name: Create Project Heading
-  shell: echo "Tower_Projects:" >> /root/backup/projects.config
+  shell: echo "Tower_Projects:" >> "{{backup_path}}"/backup/projects.config
 
 - name: Create Job Templates Backup File
   shell: |
-    echo "  - name: {{item.0}}" >> /root/backup/projects.config
-    echo "    description: {{item.1}}" >> /root/backup/projects.config
-    echo "    scm_type: {{item.2}}" >> /root/backup/projects.config
-    echo "    scm_url:  {{item.3}}" >> /root/backup/projects.config
-    echo "    scm_branch: {{item.4}}" >> /root/backup/projects.config
-    echo "    scm_credential: {{item.5}}" >> /root/backup/projects.config
-    echo "    scm_clean: {{item.6}}" >> /root/backup/projects.config
-    echo "    scm_update_on_launch: {{item.7}}" >> /root/backup/projects.config
-    echo "    scm_update_cache_timeout: {{item.8}}" >> /root/backup/projects.config
-    echo "    scm_delete_on_update: {{item.9}}" >> /root/backup/projects.config
-    echo -e "    organization: {{item.10}}\n" >> /root/backup/projects.config
+    echo "  - name: {{item.0}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    description: {{item.1}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    scm_type: {{item.2}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    scm_url:  {{item.3}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    scm_branch: {{item.4}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    scm_credential: {{item.5}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    scm_clean: {{item.6}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    scm_update_on_launch: {{item.7}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    scm_update_cache_timeout: {{item.8}}" >> "{{backup_path}}"/backup/projects.config
+    echo "    scm_delete_on_update: {{item.9}}" >> "{{backup_path}}"/backup/projects.config
+    echo -e "    organization: {{item.10}}\n" >> "{{backup_path}}"/backup/projects.config
   with_together:
     - "{{projects|json_query('json.results[].name')}}"
     - "{{projects|json_query('json.results[].description')}}"

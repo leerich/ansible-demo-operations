@@ -1,4 +1,7 @@
 ---
+- hosts: all
+  vars:
+    backup_path: "{{backup_path}}"/backup
 
 - name: Pull Job Templates from Tower
   uri:
@@ -12,29 +15,22 @@
 
 - name: Remove config file if it exists
   file:
-    path: /root/job_templates.config
+    path: "{{backup_path}}"/job_templates.config
     state: absent
-#- name: "Display all template names"
-#  debug: var=job_templates
-  #debug: var=(job_templates|type_debug)
-  #with_items: "{{ job_templates|type_debug }}"
-#- name: Create Job Template Backup File
-#  template:
-#    src: job_templates.j2
-#    dest: /root/job_templates.config
+
 - name: Create Job Templates Backup File
   shell: |
-    echo "  - name: {{item.0}}" >> /root/job_templates.config
-    echo "    description: {{item.1}}" >> /root/job_templates.config
-    echo "    inventory: {{item.2}}" >> /root/job_templates.config
-    echo "    project:  {{item.3}}" >> /root/job_templates.config
-    echo "    playbook: {{item.4}}" >> /root/job_templates.config
-    echo "    credential: {{item.5}}" >> /root/job_templates.config
-    echo "    cloud_credential: {{item.6}}" >> /root/job_templates.config
-    echo "    network_credential: {{item.7}}" >> /root/job_templates.config
-    echo "    job_type: {{item.8}}" >> /root/job_templates.config
-    echo -e "    become_enabled: {{item.9}}\n" >> /root/job_templates.config
-  with_together: 
+    echo "  - name: {{item.0}}" >> "{{backup_path}}"/job_templates.config
+    echo "    description: {{item.1}}" >> "{{backup_path}}"/job_templates.config
+    echo "    inventory: {{item.2}}" >> "{{backup_path}}"/job_templates.config
+    echo "    project:  {{item.3}}" >> "{{backup_path}}"/job_templates.config
+    echo "    playbook: {{item.4}}" >> "{{backup_path}}"/job_templates.config
+    echo "    credential: {{item.5}}" >> "{{backup_path}}"/job_templates.config
+    echo "    cloud_credential: {{item.6}}" >> "{{backup_path}}"/job_templates.config
+    echo "    network_credential: {{item.7}}" >> "{{backup_path}}"/job_templates.config
+    echo "    job_type: {{item.8}}" >> "{{backup_path}}"/job_templates.config
+    echo -e "    become_enabled: {{item.9}}\n" >> "{{backup_path}}"/job_templates.config
+  with_together:
     - "{{job_templates|json_query('json.results[].name')}}"
     - "{{job_templates|json_query('json.results[].description')}}"
     - "{{job_templates|json_query('json.results[].summary_fields.inventory.name')}}"
@@ -45,4 +41,3 @@
     - "{{job_templates|json_query('json.results[].summary_fields.network_credential.name')}}"
     - "{{job_templates|json_query('json.results[].job_type')}}"
     - "{{job_templates|json_query('json.results[].become_enabled')}}"
-
