@@ -1,7 +1,7 @@
 ---
 
-#- name: Backup Job Templates
-#  include: job_templates.yml
+- name: Backup Job Templates
+  include: job_templates.yml
 
 - name: Backup Projects
   include: projects.yml
