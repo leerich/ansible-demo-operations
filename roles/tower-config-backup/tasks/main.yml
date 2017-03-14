@@ -33,7 +33,7 @@
     echo "    cloud_credential: {{item.6}}" >> /root/job_templates.config
     echo "    network_credential: {{item.7}}" >> /root/job_templates.config
     echo "    job_type: {{item.8}}" >> /root/job_templates.config
-    printf "    become_enabled: {{item.9}}\n" >> /root/job_templates.config
+    echo "    become_enabled: {{item.9}}\n" >> /root/job_templates.config
   with_together: 
     - "{{job_templates|json_query('json.results[].name')}}"
     - "{{job_templates|json_query('json.results[].description')}}"
