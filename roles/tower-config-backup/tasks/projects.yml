@@ -15,7 +15,7 @@
 
 - name: Remove config file if it exists
   file:
-    path: "{{backup_path}}"/projects.config
+    path: "{{backup_path}}/projects.config"
     state: absent
 
 - name: Create Project Heading
