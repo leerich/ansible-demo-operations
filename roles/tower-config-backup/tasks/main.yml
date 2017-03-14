@@ -1,0 +1,4 @@
+---
+
+- name: Backup Job Templates
+  include: job_templates.yml
