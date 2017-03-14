@@ -14,11 +14,23 @@
 #  debug: var=job_templates
   #debug: var=(job_templates|type_debug)
   #with_items: "{{ job_templates|type_debug }}"
-- name: Create Job Template Backup File
-  template:
-    src: job_templates.j2
-    dest: /root/job_templates.config
-
+#- name: Create Job Template Backup File
+#  template:
+#    src: job_templates.j2
+#    dest: /root/job_templates.config
+- name: Create Job Templates Backup File
+  shell: |
+    echo "  - name: {{item.0}}" >> /root/job_templates.config
+  with_together: 
+    - "{{job_templates|json_query('json.results[].name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.project.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.inventory.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.cloud_credential.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.credential.name')}}"
+    - "{{job_templates|json_query('json.results[].summary_fields.network_credential.name')}}"
+    - "{{job_templates|json_query('json.results[].job_type')}}"
+    - "{{job_templates|json_query('json.results[].playbook')}}"
+    - "{{job_templates|json_query('json.results[].become_enabled')}}"
 
 - name: "Display all template names"
   #debug: var=job_templates
