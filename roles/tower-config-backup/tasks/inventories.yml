@@ -21,7 +21,7 @@
 - name: Create Inventories Heading
   shell: echo "tower_inventories:" >> "{{backup_path}}/inventories.config"
 
-- name: Create Job Templates Backup File
+- name: Create Inventories Backup File
   shell: |
     echo "  - name: {{item.0}}" >> "{{backup_path}}/inventories.config"
     echo "    description: {{item.1}}" >> "{{backup_path}}/inventories.config"
