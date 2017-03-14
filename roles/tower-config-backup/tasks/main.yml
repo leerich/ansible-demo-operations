@@ -20,5 +20,5 @@
   debug: var=item
   with_together: 
     - "{{job_templates|json_query('json.results[].name')}}"
-    - "{{job_templates|json_query('json.results[].project')}}"
+    - "{{job_templates|json_query('json.results[].project.name')}}"
   #with_items: "{{ job_templates }}"
