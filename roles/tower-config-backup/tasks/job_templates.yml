@@ -28,7 +28,7 @@
     echo "    inventory: {{item.2}}" >> "{{backup_path}}/job_templates.config"
     echo "    project:  {{item.3}}" >> "{{backup_path}}/job_templates.config"
     echo "    playbook: {{item.4}}" >> "{{backup_path}}/job_templates.config"
-    echo "    credential: {{item.5}}" >> "{{backup_path}}/job_templates.config"
+    echo "    machine_credential: {{item.5}}" >> "{{backup_path}}/job_templates.config"
     echo "    cloud_credential: {{item.6}}" >> "{{backup_path}}/job_templates.config"
     echo "    network_credential: {{item.7}}" >> "{{backup_path}}/job_templates.config"
     echo "    job_type: {{item.8}}" >> "{{backup_path}}/job_templates.config"
