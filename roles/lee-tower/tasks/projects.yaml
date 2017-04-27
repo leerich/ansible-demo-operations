@@ -1,7 +1,7 @@
 ---
 - name: Create Lee's Demo Examples Project
   tower_project:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     name:  Ansible Examples (LR)
     description:  Example Playbooks from Lee's repository
     organization: Default
@@ -16,7 +16,7 @@
 
 - name: ensure all admins have use and admin access to the admin project
   tower_role:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     team: Operations
     role: "{{ item }}"
     project: Ansible Examples (LR)
@@ -27,7 +27,7 @@
 
 - name: Create Network Demo Project
   tower_project:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     name:  Network Demo
     description:  Example Playbooks from Lee's repository
     organization: Default
@@ -42,7 +42,7 @@
 
 - name: ensure all admins have use and admin access to the admin project
   tower_role:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     team: Operations
     role: "{{ item }}"
     project: Network Demo
@@ -53,7 +53,7 @@
 
 - name: Create Network-POC Project
   tower_project:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     name:  Network POC
     description:  Example Playbooks from Lee's repository
     organization: Default
@@ -79,7 +79,7 @@
 
 - name: Create Sandbox Project
   tower_project:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     name:  Sandbox
     description:  Example Playbooks from Lee's repository
     organization: Default
@@ -94,7 +94,7 @@
 
 - name: ensure all admins have use and admin access to the admin project
   tower_role:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     team: Operations
     role: "{{ item }}"
     project: Sandbox
@@ -105,7 +105,7 @@
     
 - name: Create Tower Operations Project
   tower_project:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     name:  Tower Operations
     description:  Example Playbooks from Lee's repository
     organization: Default
@@ -120,7 +120,7 @@
 
 - name: ensure all admins have use and admin access to the admin project
   tower_role:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     team: Operations
     role: "{{ item }}"
     project: Tower Operations
