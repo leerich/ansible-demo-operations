@@ -68,7 +68,7 @@
 
 - name: ensure all admins have use and admin access to the admin project
   tower_role:
-    config_file: "~/tower_cli.cfg"
+    #config_file: "~/tower_cli.cfg"
     team: Operations
     role: "{{ item }}"
     project: Network POC
@@ -102,7 +102,7 @@
   with_items:
     - use
     - admin
-    
+
 - name: Create Tower Operations Project
   tower_project:
     #config_file: "~/tower_cli.cfg"
