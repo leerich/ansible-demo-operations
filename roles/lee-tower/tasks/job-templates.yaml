@@ -15,7 +15,7 @@
 
 - name: create job template Deploy ACLs on Network Devices
   tower_job_template:
-    config_file: ~/tower_cli.cfg
+    #config_file: ~/tower_cli.cfg
     name: "Deploy ACLs on Network Devices"
     description: "Deploy ACLs on Network Devices"
     job_type: run
@@ -30,7 +30,7 @@
     state: present
 #- name: create job template Configure NTP on Network Devices
 #  tower_job_template:
-#    config_file: ~/tower_cli.cfg
+#    #config_file: ~/tower_cli.cfg
 #    name: Configure NTP on Network Devices
 #    description: Configure NTP on Network Devices
 #    job_type: run
@@ -45,7 +45,7 @@
 #    state: present
 - name: create job template Scan Windows Hosts
   tower_job_template:
-    config_file: ~/tower_cli.cfg
+    #config_file: ~/tower_cli.cfg
     name: Scan Windows Hosts
     description: Scan AWS Windows Hosts
     job_type: scan
@@ -61,7 +61,7 @@
 
 - name: create job template Scan AWS Linux Hosts
   tower_job_template:
-    config_file: ~/tower_cli.cfg
+    #config_file: ~/tower_cli.cfg
     name: Scan AWS Linux Hosts
     description: Scan AWS Linux Hosts
     job_type: scan
@@ -77,7 +77,7 @@
 
 - name: create job template Launching AWS Linux Instances
   tower_job_template:
-    config_file: ~/tower_cli.cfg
+    #config_file: ~/tower_cli.cfg
     name: Launch AWS Linux Demo Instances
     description: Launch a set of linux instances for Demo
     job_type: run
@@ -94,7 +94,7 @@
 
 - name: Create Lee's job templates
   tower_job_template:
-    config_file: ~/tower_cli.cfg
+    #config_file: ~/tower_cli.cfg
     name: "{{ item.name }}"
     description: "{{ item.description }}"
     job_type: "{{ item.job_type }}"
@@ -115,7 +115,7 @@
 
 - name: ensure all job template roles are granted
   tower_role:
-    config_file: ~/tower_cli.cfg
+    #config_file: ~/tower_cli.cfg
     job_template: "{{ item.0.name }}"
     team: "{{ item.1.name }}"
     role: "{{ item.1.type }}"
