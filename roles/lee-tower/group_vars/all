@@ -1,2 +1,2 @@
 ---
-config_file: ~/tower_cli.cfg
+config_file: /var/lib/awx/tower_cli.cfg
