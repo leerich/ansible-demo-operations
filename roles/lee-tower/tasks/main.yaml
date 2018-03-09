@@ -5,9 +5,9 @@
   tags:
   - teams
 
-- name: Add Credentials to Tower
-  include: credentials.yaml
-  tags: credentials
+#- name: Add Credentials to Tower
+#  include: credentials.yaml
+#  tags: credentials
 
 - name: Add Projects to Tower
   include: projects.yaml
