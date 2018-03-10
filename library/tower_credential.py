@@ -161,6 +161,7 @@ try:
     import tower_cli.utils.exceptions as exc
 
     from tower_cli.conf import settings
+    HAS_TOWER_CLI = True
 except ImportError:
     HAS_TOWER_CLI = False
 
