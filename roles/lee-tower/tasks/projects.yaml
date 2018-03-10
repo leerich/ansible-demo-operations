@@ -11,6 +11,7 @@
     scm_clean: yes
     scm_delete_on_update: no
     scm_update_on_launch: yes
+    scm_credential: ""
     state: present
 
 
