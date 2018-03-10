@@ -154,7 +154,7 @@ EXAMPLES = '''
 
 import os
 
-from ansible.module_utils.ansible_tower import tower_argument_spec, tower_auth_config, tower_check_mode, HAS_TOWER_CLI
+from ansible.module_utils.ansible_tower import tower_argument_spec, tower_auth_config, tower_check_mode
 
 try:
     import tower_cli
