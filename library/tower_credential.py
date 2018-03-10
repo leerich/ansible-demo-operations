@@ -162,7 +162,7 @@ try:
 
     from tower_cli.conf import settings
 except ImportError:
-    pass
+    HAS_TOWER_CLI = False
 
 
 KIND_CHOICES = {
