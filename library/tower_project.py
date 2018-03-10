@@ -99,16 +99,15 @@ EXAMPLES = '''
     tower_config_file: "~/tower_cli.cfg"
 '''
 
-from ansible.module_utils.ansible_tower import tower_argument_spec, tower_auth_config, tower_check_mode
+from ansible.module_utils.ansible_tower import tower_argument_spec, tower_auth_config, tower_check_mode, HAS_TOWER_CLI
 
 try:
     import tower_cli
     import tower_cli.utils.exceptions as exc
 
     from tower_cli.conf import settings
-    HAS_TOWER_CLI = True
 except ImportError:
-    HAS_TOWER_CLI = False
+    pass
 
 
 def main():
@@ -162,16 +161,19 @@ def main():
                     org = org_res.get(name=organization)
                 except (exc.NotFound) as excinfo:
                     module.fail_json(msg='Failed to update project, organization not found: {0}'.format(organization), changed=False)
-                try:
-                    cred_res = tower_cli.get_resource('credential')
-                    cred = cred_res.get(name=scm_credential)
-                except (exc.NotFound) as excinfo:
-                    module.fail_json(msg='Failed to update project, credential not found: {0}'.format(scm_credential), changed=False)
+                credential = None
+                if scm_credential:
+                    try:
+                        cred_res = tower_cli.get_resource('credential')
+                        cred = cred_res.get(name=scm_credential)
+                        credential = cred['id']
+                    except (exc.NotFound) as excinfo:
+                        module.fail_json(msg='Failed to update project, credential not found: {0}'.format(scm_credential), changed=False)
 
                 result = project.modify(name=name, description=description,
                                         organization=org['id'],
                                         scm_type=scm_type, scm_url=scm_url, local_path=local_path,
-                                        scm_branch=scm_branch, scm_clean=scm_clean, credential=cred['id'],
+                                        scm_branch=scm_branch, scm_clean=scm_clean, credential=credential,
                                         scm_delete_on_update=scm_delete_on_update,
                                         scm_update_on_launch=scm_update_on_launch,
                                         create_on_missing=True)
