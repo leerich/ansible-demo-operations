@@ -3,7 +3,7 @@
     name: '*'
     state: latest
     
-    
+- name: install azure     
   pip:
     name: azure
     state: latest
