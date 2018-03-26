@@ -4,3 +4,6 @@
     state: latest
     
     
+  pip:
+    name: azure
+    state: latest
