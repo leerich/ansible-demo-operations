@@ -5,5 +5,5 @@
     
 - name: install azure     
   pip:
-    name: azure
+    name: ansible[azure]
     state: latest
