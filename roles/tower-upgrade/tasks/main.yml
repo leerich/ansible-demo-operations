@@ -1,0 +1,6 @@
+- name: Do up yum update
+  yum:
+    name: '*'
+    state: latest
+    
+    
