@@ -31,7 +31,7 @@
       --type "{{ item }}"
     with_items:
       - use
-      - admin
+      #- admin
 
 #  - name: ensure all admins have use and admin access to the admin project
 #    tower_role:
