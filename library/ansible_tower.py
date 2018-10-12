@@ -37,39 +37,42 @@ try:
 except ImportError:
     HAS_TOWER_CLI = False
 
-from ansible.module_utils.basic import AnsibleModule
-
 
 def tower_auth_config(module):
     '''tower_auth_config attempts to load the tower-cli.cfg file
     specified from the `tower_config_file` parameter. If found,
     if returns the contents of the file as a dictionary, else
-    it will attempt to fetch values from the module pararms and
-    only pass those values that have been set.
+    it will attempt to pop the values from the module parameters.
+    It will only pass the values that might have been set and will clean
+    the dictionary from the tower keys created in tower_argument_spec,
+    so that when this function completes, the module.params dictionary will
+    not contain any keys related to the tower authentication.
     '''
+    tower_auth_args = [
+        'tower_host',
+        'tower_username',
+        'tower_password',
+        'tower_verify_ssl',
+        'tower_config_file',
+    ]
     config_file = module.params.pop('tower_config_file', None)
     if config_file:
+        config_file = os.path.expanduser(config_file)
         if not os.path.exists(config_file):
             module.fail_json(msg='file not found: %s' % config_file)
         if os.path.isdir(config_file):
             module.fail_json(msg='directory can not be used as config file: %s' % config_file)
-
+        for arg in tower_auth_args:
+            module.params.pop(arg, None)
         with open(config_file, 'rb') as f:
             return parser.string_to_dict(f.read())
     else:
         auth_config = {}
-        host = module.params.pop('tower_host', None)
-        if host:
-            auth_config['host'] = host
-        username = module.params.pop('tower_username', None)
-        if username:
-            auth_config['username'] = username
-        password = module.params.pop('tower_password', None)
-        if password:
-            auth_config['password'] = password
-        verify_ssl = module.params.pop('tower_verify_ssl', None)
-        if verify_ssl is not None:
-            auth_config['verify_ssl'] = verify_ssl
+        for arg in tower_auth_args:
+            argk = arg.replace('tower_', '', 1)
+            argv = module.params.pop(arg, None)
+            if argv is not None:
+                auth_config[argk] = argv
         return auth_config
 
 
@@ -83,26 +86,16 @@ def tower_check_mode(module):
             module.fail_json(changed=False, msg='Failed check mode: {0}'.format(excinfo))
 
 
-class TowerModule(AnsibleModule):
-    def __init__(self, argument_spec, **kwargs):
-        args = dict(
-            tower_host=dict(),
-            tower_username=dict(),
-            tower_password=dict(no_log=True),
-            tower_verify_ssl=dict(type='bool', default=True),
-            tower_config_file=dict(type='path'),
-        )
-        args.update(argument_spec)
-
-        mutually_exclusive = kwargs.get('mutually_exclusive', [])
-        kwargs['mutually_exclusive'] = mutually_exclusive.extend((
-            ('tower_config_file', 'tower_host'),
-            ('tower_config_file', 'tower_username'),
-            ('tower_config_file', 'tower_password'),
-            ('tower_config_file', 'tower_verify_ssl'),
-        ))
-
-        super(TowerModule, self).__init__(argument_spec=args, **kwargs)
-
-        if not HAS_TOWER_CLI:
-            self.fail_json(msg='ansible-tower-cli required for this module')
+def tower_argument_spec():
+    '''tower_argument_spec provides the set of keys that might be used
+    for the authentication.
+    tower_auth_config should be used to fulfill those keys and to remove
+    the unsused ones.
+    '''
+    return dict(
+        tower_host=dict(),
+        tower_username=dict(),
+        tower_password=dict(no_log=True),
+        tower_verify_ssl=dict(type='bool', default=True),
+        tower_config_file=dict(type='path'),
+    )
