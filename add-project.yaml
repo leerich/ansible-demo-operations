@@ -27,7 +27,7 @@
     shell: >
       tower-cli role grant
       --project "{{ project_name }}"
-      --team "Operations"
+      --user "{{ tower_user_name }}"
       --type "{{ item }}"
     with_items:
       - use
