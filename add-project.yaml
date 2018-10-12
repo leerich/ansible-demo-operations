@@ -23,7 +23,7 @@
       state: present
 
 
-  - name: Ensure all admins have access to the created project
+  - name: Ensure users have access to the created project
     shell: >
       tower-cli role grant
       --project "{{ project_name }}"
