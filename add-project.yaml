@@ -32,7 +32,7 @@
       
   - name: ensure all admins have use and admin access to the admin project
     tower_role:
-      #tower_config_file: ~/tower_cli.cfg
+      tower_config_file: ~/tower_cli.cfg
       team: Operations
       role: "{{ item }}"
       project: "{{ project_name }}"
