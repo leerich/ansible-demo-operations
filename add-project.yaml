@@ -15,7 +15,7 @@
       description: "{{ project_description }}"
       organization: Default
       scm_type: git
-      scm_url: https://github.com/"{{ scm_username }}"/"{{ project_name }}" 
+      scm_url: "https://github.com/{{ scm_username }}/{{ project_name }}" 
       scm_branch: master
       scm_clean: yes
       scm_delete_on_update: no
