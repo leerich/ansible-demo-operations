@@ -71,7 +71,7 @@ EXAMPLES = '''
     tower_config_file: "~/tower_cli.cfg"
 '''
 
-from ansible.module_utils.ansible_tower import TowerModule, tower_auth_config, tower_check_mode
+from ansible.module_utils.ansible_tower import tower_argument_spec, tower_auth_config, tower_check_mode, HAS_TOWER_CLI
 
 try:
     import tower_cli
@@ -86,7 +86,7 @@ def update_resources(module, p):
     '''update_resources attempts to fetch any of the resources given
     by name using their unique field (identity)
     '''
-    params = p.copy()
+    params = dict()
     identity_map = {
         'user': 'username',
         'team': 'name',
@@ -99,9 +99,9 @@ def update_resources(module, p):
     }
     for k, v in identity_map.items():
         try:
-            if params[k]:
+            if p[k]:
                 key = 'team' if k == 'target_team' else k
-                result = tower_cli.get_resource(key).get(**{v: params[k]})
+                result = tower_cli.get_resource(key).get(**{v: p[k]})
                 params[k] = result['id']
         except (exc.NotFound) as excinfo:
             module.fail_json(msg='Failed to update role, {0} not found: {1}'.format(k, excinfo), changed=False)
@@ -110,7 +110,8 @@ def update_resources(module, p):
 
 def main():
 
-    argument_spec = dict(
+    argument_spec = tower_argument_spec()
+    argument_spec.update(dict(
         user=dict(),
         team=dict(),
         role=dict(choices=["admin", "read", "member", "execute", "adhoc", "update", "use", "auditor"]),
@@ -121,10 +122,12 @@ def main():
         organization=dict(),
         project=dict(),
         state=dict(choices=['present', 'absent'], default='present'),
-    )
+    ))
 
-    module = TowerModule(argument_spec=argument_spec, supports_check_mode=True)
+    module = AnsibleModule(argument_spec=argument_spec, supports_check_mode=True)
 
+    if not HAS_TOWER_CLI:
+        module.fail_json(msg='ansible-tower-cli required for this module')
     role_type = module.params.pop('role')
     state = module.params.pop('state')
 
@@ -151,5 +154,6 @@ def main():
     module.exit_json(**json_output)
 
 
+from ansible.module_utils.basic import AnsibleModule
 if __name__ == '__main__':
     main()
