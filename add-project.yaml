@@ -37,6 +37,7 @@
       role: "{{ item }}"
       project: "{{ project_name }}"
       state: present
+      tower_verify_ssl: no
     with_items:
       - use
       - admin
