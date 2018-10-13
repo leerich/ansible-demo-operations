@@ -12,6 +12,7 @@
     --credential "Network Credentials"
     --become-enabled "no"
   tags: skip
+  ignore_errors: yes
 
 - name: create job template Deploy ACLs on Network Devices
   tower_job_template:
