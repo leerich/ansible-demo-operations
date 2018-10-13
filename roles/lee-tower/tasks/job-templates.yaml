@@ -8,8 +8,8 @@
     --inventory "Network Devices"
     --project "Network Demo"
     --playbook "deploy_acl.yaml"
-    --machine-credential "AWS SSH Key"
-    --network-credential "Network Credentials"
+    --credential "AWS SSH Key"
+    --credential "Network Credentials"
     --become-enabled "no"
   tags: skip
 
