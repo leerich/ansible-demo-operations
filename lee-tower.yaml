@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: all
   gather_facts: no
   vars_files:
     - roles/lee-tower/group_vars/vault.yaml
