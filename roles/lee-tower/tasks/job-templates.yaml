@@ -22,10 +22,7 @@
     project: Network Demo
     playbook: deploy_acl.yaml
     inventory: Network Devices
-    credential: 
-      - "AWS SSH Key"
-      - "Network Credentials"
-      - "AWS Sales API Key"
+    credential: "AWS SSH Key"
     ask_credential: yes
     become_enabled: no
     state: present
