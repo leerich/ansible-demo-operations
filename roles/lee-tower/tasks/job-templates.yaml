@@ -9,7 +9,6 @@
     --project "Network Demo"
     --playbook "deploy_acl.yaml"
     --credential "AWS SSH Key"
-    --credential "Network Credentials"
     --become-enabled "no"
   tags: skip
   ignore_errors: yes
@@ -23,9 +22,10 @@
     project: Network Demo
     playbook: deploy_acl.yaml
     inventory: Network Devices
-    machine_credential: "AWS SSH Key"
-    network_credential: "Network Credentials"
-    cloud_credential: "AWS Sales API Key"
+    credential: 
+      - "AWS SSH Key"
+      - "Network Credentials"
+      - "AWS Sales API Key"
     ask_credential: yes
     become_enabled: no
     state: present
