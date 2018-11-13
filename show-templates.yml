@@ -1,4 +1,7 @@
 ---
-- name: List job templates
-  command: tower-cli job_template list
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: List job templates
+      command: tower-cli job_template list
     
