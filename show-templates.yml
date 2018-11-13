@@ -1,0 +1,5 @@
+---
+- name: Associate the user with the demo admin team
+  shell: >
+    tower-cli job_template list
+    
