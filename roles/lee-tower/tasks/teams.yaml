@@ -2,7 +2,7 @@
 
 - name: create all sales demo teams
   tower_team:
-    #tower_config_file: ~/tower_cli.cfg
+    tower_config_file: ~/tower_cli.cfg
     name: "{{ item.name }}"
     #description: "{{ item.description | default('') }}"
     organization: Default
