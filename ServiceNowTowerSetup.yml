@@ -1,0 +1,14 @@
+---
+- name: Create ServiceNow Application
+  shell: >
+    tower-cli application create
+    --name "ServiceNow"
+    --description "For ServiceNow authentication"
+    --client-type confidential
+    --authorization-grant-type "authorization-code"
+    --organization Default
+    --redirect-uris 'https://service-now.com'
+  tags: skip
+  ignore_errors: no
+  
+  
