@@ -1,0 +1,6 @@
+- name: Copy Tower resources
+  hosts: all
+  gather_facts: no
+  roles:
+    - tower-config-resources
+    
