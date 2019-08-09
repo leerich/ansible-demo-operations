@@ -1,0 +1,9 @@
+- name: Export all tower assets
+  tower_receive:
+    all: True
+    tower_config_file: "~/tower_cli.cfg"
+  register: tower_config
+
+- name: Debug Variable
+  debug:
+    msg: "{{ tower_config }}"
