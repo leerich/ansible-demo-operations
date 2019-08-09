@@ -2,8 +2,8 @@
   tower_receive:
     all: True
     tower_config_file: "~/tower_cli.cfg"
-  register: tower_config
+  register: tower_var
 
 - name: Debug Variable
   debug:
-    msg: "{{ tower_config }}"
+    msg: "{{ tower_var }}"
